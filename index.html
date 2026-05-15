@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>Cyber Pulse | CyberPulse Security Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0D888D;
+            --primary-dark: #0a6e72;
+            --secondary: #e8e8fc;
+            --bg-dark: #000000;
+            --bg-card: #0a0f12;
+            --bg-sidebar: #05080a;
+            --accent-red: #03527A;
+            --accent-green: #2D0370;
+            --accent-blue: #1A1A40;
+            --text-muted: #9aabbc;
+            --card-border: #0D888D;
+            --danger: #ff4444;
+            --warning: #ffaa00;
+            --success: #00ff88;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-dark);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, var(--bg-sidebar) 0%, #010101 100%);
+            border-left: 1px solid var(--primary);
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+            box-shadow: -5px 0 25px rgba(13,136,141,0.1);
+        }
+
+        .sidebar-header {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-header h2 {
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-size: 1.6rem;
+            white-space: pre-line;
+        }
+
+        .sidebar-header p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            padding: 0 1.5rem;
+            margin-bottom: 1rem;
+            border-right: 3px solid var(--accent-green);
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+        }
+
+        .sidebar-section li a {
+            display: block;
+            padding: 0.6rem 1.5rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            border-right: 3px solid transparent;
+        }
+
+        .sidebar-section li a i {
+            margin-left: 10px;
+            width: 20px;
+            color: var(--primary);
+        }
+
+        .sidebar-section li a:hover {
+            background: rgba(13, 136, 141, 0.1);
+            border-right-color: var(--primary);
+            padding-right: 2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-right: 280px;
+            padding: 2rem 2.5rem;
+            min-height: 100vh;
+        }
+
+        /* Top Navbar */
+        .top-navbar {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            padding: 12px 0;
+        }
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        .logo p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .lang-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--primary);
+            padding: 8px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--primary);
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+        .lang-toggle:hover {
+            background: rgba(13,136,141,0.1);
+            border-color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-card);
+            padding: 60px 20px 50px;
+            border-bottom: 1px solid var(--card-border);
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--primary);
+        }
+        .hero h2 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+        }
+
+        /* Stats Tree */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(13,136,141,0.2);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Sections */
+        .section {
+            padding: 30px 0;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            color: var(--primary);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 15px;
+        }
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--secondary);
+            transition: all 0.25s ease;
+            display: block;
+            cursor: pointer;
+        }
+        .tool-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px -12px rgba(13,136,141,0.3);
+            background: #0d1117;
+        }
+        .tool-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+        .tool-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .tool-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            display: none;
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .download-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .download-section h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .download-section p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .download-card {
+            background: var(--bg-card);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        .download-card:hover {
+            box-shadow: 0 10px 40px rgba(13,136,141,0.3);
+            transform: translateY(-5px);
+        }
+        .download-card i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .download-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .download-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .download-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--bg-dark);
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background: #0fb8c0;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(13,136,141,0.5);
+        }
+        .download-btn i {
+            font-size: 1rem;
+            color: var(--bg-dark);
+            margin-left: 8px;
+            margin-bottom: 0;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .team-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        .team-img {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            background: #1e2a3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 12px rgba(13,136,141,0.2);
+        }
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .team-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .team-social a {
+            color: var(--text-muted);
+            margin: 0 6px;
+            font-size: 1.1rem;
+            transition: 0.2s;
+            display: inline-block;
+        }
+        .team-social a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(13,136,141,0.2);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .footer .warning {
+            color: var(--warning);
+            margin-top: 8px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 200;
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            .sidebar {
+                transform: translateX(100%);
+                width: 260px;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-right: 0;
+                padding: 1rem;
+                padding-top: 4rem;
+            }
+            .hero h2 {
+                font-size: 1.7rem;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* RTL / LTR Support */
+        html[dir="ltr"] .sidebar {
+            border-left: none;
+            border-right: 1px solid var(--primary);
+            left: 0;
+            right: auto;
+        }
+        html[dir="ltr"] .main-content {
+            margin-right: 0;
+            margin-left: 280px;
+        }
+        html[dir="ltr"] .sidebar-section h3 {
+            border-right: none;
+            border-left: 3px solid var(--accent-green);
+            padding: 0 0 0 1.5rem;
+        }
+        html[dir="ltr"] .sidebar-section li a {
+            border-right: none;
+            border-left: 3px solid transparent;
+        }
+        html[dir="ltr"] .sidebar-section li a:hover {
+            border-left-color: var(--primary);
+            padding-left: 2rem;
+            padding-right: 1.5rem;
+        }
+        html[dir="ltr"] .section-title {
+            border-bottom: 2px solid var(--primary);
+        }
+        @media (max-width: 768px) {
+            html[dir="ltr"] .main-content {
+                margin-left: 0;
+            }
+            html[dir="ltr"] .sidebar {
+                transform: translateX(-100%);
+            }
+            html[dir="ltr"] .sidebar.open {
+                transform: translateX(0);
+            }
+        }
+
+        body:not(.en-mode) {
+            direction: rtl;
+            text-align: right;
+        }
+        body.en-mode {
+            direction: ltr;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 id="sidebarBrand">⚡ Cyber<br>Pulse</h2>
+                <p id="sidebarTagline">مجموعة متقدمة للأمن السيبراني</p>
+            </div>
+            <div class="sidebar-section">
+                <h3 id="sidebarHomeTitle">🏠 الرئيسية</h3>
+                <ul>
+                    <li><a id="sidebarHomeLink"><i class="fas fa-home"></i> <span id="homeLinkSide">الرئيسية</span></a></li>
+                    <li><a id="sidebarDownloadLink"><i class="fas fa-download"></i> <span id="downloadLinkSide">تحميل</span></a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 id="attackSideTitle">⚔️ وحدات الهجوم</h3>
+                <ul id="attack-modules-list"></ul>
+            </div>
+            <div class="sidebar-section">
+                <h3 id="defenseSideTitle">🛡️ وحدات الدفاع</h3>
+                <ul id="defense-modules-list"></ul>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <div class="top-navbar">
+                <div class="nav-flex">
+                    <div class="logo">
+                        <h1 id="brandTextTop">⚡ Cyber<br>Pulse</h1>
+                        <p id="taglineTop">مجموعة متقدمة للأمن السيبراني</p>
+                    </div>
+                    <div class="nav-links">
+                        <a id="topHomeLink"><i class="fas fa-home"></i> <span id="homeLinkTopSpan">الرئيسية</span></a>
+                        <a id="topDownloadLink"><i class="fas fa-download"></i> <span id="downloadLinkTopSpan">تحميل</span></a>
+                        <div class="lang-toggle" id="langToggleBtn">🇬🇧 EN</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Sections Container -->
+            <div id="mainSections">
+                <!-- Hero -->
+                <div class="hero">
+                    <h2 id="heroTitle">🛡️ Cyber Pulse - مجموعة أدوات الأمن السيبراني</h2>
+                    <p id="heroDesc">منصة متكاملة لأدوات الاختبار الأمني والدفاع السيبراني<br>تعلم، اكتشف، وطبّق بأمان</p>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-layer-group"></i>
+                        <div class="number">17</div>
+                        <span class="label" id="totalToolsSpan">أداة تعليمية شاملة</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-bolt"></i>
+                        <div class="number">7</div>
+                        <span class="label" id="attackStatsSpan">تقنيات هجومية</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="number">10</div>
+                        <span class="label" id="defenseStatsSpan">أنظمة دفاعية</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-download"></i>
+                        <div class="number">1</div>
+                        <span class="label" id="downloadStatsSpan">ملف للتحميل</span>
+                    </div>
+                </div>
+
+                <!-- Attack Modules -->
+                <div class="section">
+                    <h2 class="section-title" id="attackSectionTitle">⚔️ هجمات احترافية</h2>
+                    <div id="attack-tools-grid" class="tools-grid"></div>
+                </div>
+
+                <!-- Defense Modules -->
+                <div class="section">
+                    <h2 class="section-title" id="defenseSectionTitle">🛡️ أدوات دفاعية</h2>
+                    <div id="defense-tools-grid" class="tools-grid"></div>
+                </div>
+
+                <!-- Team Section -->
+                <div class="section">
+                    <h2 class="section-title" id="teamTitle">👥 فريق العمل</h2>
+                    <div id="team-grid" class="team-grid"></div>
+                </div>
+            </div>
+
+            <!-- Download Section (Hidden by default) -->
+            <div class="download-section" id="downloadSection">
+                <h2 id="downloadSectionTitle">📥 تحميل CyberPulse Suite</h2>
+                <p id="downloadSectionDesc">قم بتحميل النسخة الكاملة من CyberPulse Security Suite لتجربة جميع الأدوات</p>
+                <div class="download-card">
+                    <i class="fas fa-file-archive"></i>
+                    <h3 id="downloadFileName">CyberPulse_Security_Suite.zip</h3>
+                    <p id="downloadFileInfo">الحجم: ~200MB | الإصدار: 1.0 | التاريخ: 2026</p>
+                    <a href="assets/CyberPulse_Security_Suite.zip" download class="download-btn" id="downloadBtnText">
+                        <i class="fas fa-download"></i> <span id="downloadBtnSpan">تحميل الآن</span>
+                    </a>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <p id="copyright">© 2025 Cyber Pulse | للأغراض التعليمية فقط</p>
+                <p id="warningFooter" class="warning">⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const toolPages = {
+            dos: "tools/dos-tool.html",
+            phish: "tools/phishing-tool.html",
+            cracker: "tools/password-cracker.html",
+            phantom: "tools/phantom-stego.html",
+            wireless: "tools/wireless-tools.html",
+            web: "tools/web-exploitation.html",
+            mac: "tools/mac-changer.html",
+            malware: "tools/malware-analysis.html",
+            network: "tools/network-capture.html",
+            encrypt: "tools/encryption-tool.html",
+            pwdTools: "tools/password-tools.html",
+            usbScan: "tools/usb-scanner.html",
+            ransom: "tools/ransomware-detection.html",
+            edr: "tools/edr-monitoring.html",
+            vuln: "tools/vulnerability-scanner.html",
+            usbRecog: "tools/usb-recognizer.html",
+            honey: "tools/honeypot-trap.html"
+        };
+
+        const attackModules = [
+            { key: 'dos', icon: 'fa-fire', linkAr: 'أداة DOS', linkEn: 'DOS Tool', descAr: 'أداة اختبار ضغط الخوادم بـ 7 تقنيات', descEn: 'Server stress testing with 7 techniques' },
+            { key: 'phish', icon: 'fa-fish', linkAr: 'أداة التصيد', linkEn: 'Phishing Tool', descAr: 'إنشاء صفحات تصيد احترافية', descEn: 'Create professional phishing pages' },
+            { key: 'cracker', icon: 'fa-key', linkAr: 'تكسير كلمات المرور', linkEn: 'Password Cracker', descAr: 'تكسير هاشات MD5, SHA1, SHA256', descEn: 'Crack MD5, SHA1, SHA256 hashes' },
+            { key: 'phantom', icon: 'fa-ghost', linkAr: 'فانتوم - إخفاء البيانات', linkEn: 'Phantom Stegano', descAr: 'إخفاء الملفات والرسائل داخل الصور', descEn: 'Hide files & messages in images' },
+            { key: 'wireless', icon: 'fa-wifi', linkAr: 'أدوات الشبكات اللاسلكية', linkEn: 'Wireless Tools', descAr: 'مسح الشبكات، استخراج كلمات المرور', descEn: 'Network scanning, password extraction' },
+            { key: 'web', icon: 'fa-globe', linkAr: 'اختبار اختراق الويب', linkEn: 'Web Exploitation', descAr: 'مسح المنافذ، تحليل الهيدرات الأمنية', descEn: 'Port scanning, security headers' },
+            { key: 'mac', icon: 'fa-exchange-alt', linkAr: 'تغيير عنوان MAC', linkEn: 'MAC Changer', descAr: 'تغيير عنوان MAC للاختفاء في الشبكات', descEn: 'Change MAC address for anonymity' }
+        ];
+
+        const defenseModules = [
+            { key: 'malware', icon: 'fa-biohazard', linkAr: 'تحليل البرامج الضارة', linkEn: 'Malware Analysis', descAr: 'فحص الملفات والروابط عبر VirusTotal', descEn: 'Scan files & URLs via VirusTotal' },
+            { key: 'network', icon: 'fa-network-wired', linkAr: 'التقاط حزم الشبكة', linkEn: 'Network Capture', descAr: 'التقاط وتحليل حزم الشبكة', descEn: 'Capture & analyze network packets' },
+            { key: 'encrypt', icon: 'fa-lock', linkAr: 'أدوات التشفير', linkEn: 'Encryption', descAr: 'تشفير AES, DES, 3DES, Fernet', descEn: 'Encrypt with AES, DES, 3DES, Fernet' },
+            { key: 'pwdTools', icon: 'fa-dice-d6', linkAr: 'أدوات كلمات المرور', linkEn: 'Password Tools', descAr: 'توليد كلمات مرور قوية وتحليلها', descEn: 'Generate & analyze strong passwords' },
+            { key: 'usbScan', icon: 'fa-usb', linkAr: 'ماسح أجهزة USB', linkEn: 'USB Scanner', descAr: 'فحص الأجهزة الخارجية', descEn: 'Scan external drives' },
+            { key: 'ransom', icon: 'fa-skull', linkAr: 'كشف برامج الفدية', linkEn: 'Ransomware Detection', descAr: 'كشف الملفات المشفرة عبر الإنتروبي', descEn: 'Detect encrypted files via entropy' },
+            { key: 'edr', icon: 'fa-eye', linkAr: 'مراقبة EDR', linkEn: 'EDR Monitoring', descAr: 'مراقبة الملفات والعمليات لحظياً', descEn: 'Real-time file & process monitoring' },
+            { key: 'vuln', icon: 'fa-search', linkAr: 'ماسح الثغرات', linkEn: 'Vulnerability Scanner', descAr: 'مسح الثغرات باستخدام Nmap', descEn: 'Vulnerability scanning with Nmap' },
+            { key: 'usbRecog', icon: 'fa-microchip', linkAr: 'التعرف على أجهزة USB', linkEn: 'USB Recognizer', descAr: 'التعرف على VID/PID لأجهزة USB', descEn: 'Identify VID/PID of USB devices' },
+            { key: 'honey', icon: 'fas fa-fish', linkAr: 'مصيدة هانيبوت', linkEn: 'Honeypot Trap', descAr: 'مصيدة FTP/Telnet لالتقاط البيانات', descEn: 'FTP/Telnet honeypot for credentials' }
+        ];
+        function getSortedTeam() {
+            let copied = [...teamMembers];
+            if (currentLang === "ar") {
+                copied.sort((a,b)=> a.nameAr.localeCompare(b.nameAr, 'ar'));
+            } else {
+                copied.sort((a,b)=> a.nameEn.localeCompare(b.nameEn, 'en'));
+            }
+            return copied;
+        }
+        const teamMembers = [
+            { nameAr: "عبد الرحمن سعيد", nameEn: "Abdulrahman Saed", imagePath: "tools/images/abdo.jpg", social: { linkedin: "https://www.linkedin.com/in/abdo-saeed-b31a58339" } },
+            { nameAr: "أحمد سلامة", nameEn: "Ahmed Salama", imagePath: "tools/images/salama.jpeg", social: { linkedin: "https://www.linkedin.com/in/ahmedsalamaa" } },
+            { nameAr: "أنس محمد", nameEn: "Anas Mohamed", imagePath: "tools/images/Ans.jpeg", social: { linkedin: "https://www.linkedin.com/in/111anas111" } },
+            { nameAr: "إسلام عمرو", nameEn: "Eslam Amr", imagePath: "tools/images/Amr.jpeg", social: { linkedin: "https://www.linkedin.com/in/eslam-amr-909aa1308" } },
+            { nameAr: "إسلام تامر", nameEn: "Eslam Tamer", imagePath: "tools/images/tamer.jpg", social: { linkedin: "https://www.linkedin.com/in/eslam-elagamy-85b2a2296/" } },
+            { nameAr: "فريدة مصطفي", nameEn: "Farida Mostafa", imagePath: "tools/images/fareeda.jpg", social: { linkedin: "https://www.linkedin.com/in/farida-mostafa-542690241" } },
+            { nameAr: "جهاد أحمد", nameEn: "Gehad Ahmed", imagePath: "tools/images/jihad.jpg", social: { linkedin: "https://www.linkedin.com/in/gehad-kasim-082a15334" } },
+            { nameAr: "حبيبه صلاح", nameEn: "Habiba Salah", imagePath: "tools/images/habiba.jpg", social: { linkedin: "https://www.linkedin.com/in/habiba-salah-el-din-80221b293" } },
+            { nameAr: "محمود فؤاد", nameEn: "Mahmoud Fouad", imagePath: "tools/images/mahmoud.jpg", social: { linkedin: "https://www.linkedin.com/in/mahmoud-fouad-107668278" } },
+            { nameAr: "أمنية أسامة", nameEn: "Omnia Osama", imagePath: "tools/images/Omnia.jpg", social: { linkedin: "https://www.linkedin.com/in/omnia-osama-61a48525b" } },
+
+        ];
+
+        let currentLang = localStorage.getItem('cyberpulse_lang') || 'ar';
+
+        function navigateToTool(key) {
+            const page = toolPages[key];
+            if (page) {
+                window.location.href = page;
+            }
+        }
+
+        function showMainSections() {
+            document.getElementById('mainSections').style.display = 'block';
+            document.getElementById('downloadSection').classList.remove('active');
+        }
+
+        function showDownloadSection() {
+            document.getElementById('mainSections').style.display = 'none';
+            document.getElementById('downloadSection').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function buildSidebarLists() {
+            const attackList = document.getElementById('attack-modules-list');
+            const defenseList = document.getElementById('defense-modules-list');
+            if(!attackList || !defenseList) return;
+            
+            attackList.innerHTML = attackModules.map(mod => `
+                <li>
+                    <a class="tool-link" data-key="${mod.key}">
+                        <i class="fas ${mod.icon}"></i>
+                        <span>${currentLang === 'ar' ? mod.linkAr : mod.linkEn}</span>
+                    </a>
+                </li>
+            `).join('');
+            
+            defenseList.innerHTML = defenseModules.map(mod => `
+                <li>
+                    <a class="tool-link" data-key="${mod.key}">
+                        <i class="fas ${mod.icon}"></i>
+                        <span>${currentLang === 'ar' ? mod.linkAr : mod.linkEn}</span>
+                    </a>
+                </li>
+            `).join('');
+
+            document.querySelectorAll('.tool-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const key = link.dataset.key;
+                    if(key) navigateToTool(key);
+                });
+            });
+        }
+
+        function buildTools() {
+            const attackContainer = document.getElementById('attack-tools-grid');
+            const defenseContainer = document.getElementById('defense-tools-grid');
+            if(!attackContainer || !defenseContainer) return;
+            
+            attackContainer.innerHTML = attackModules.map(mod => `
+                <div class="tool-card" data-key="${mod.key}">
+                    <i class="fas ${mod.icon}"></i>
+                    <h3>${currentLang === 'ar' ? mod.linkAr : mod.linkEn}</h3>
+                    <p>${currentLang === 'ar' ? mod.descAr : mod.descEn}</p>
+                </div>
+            `).join('');
+            
+            defenseContainer.innerHTML = defenseModules.map(mod => `
+                <div class="tool-card" data-key="${mod.key}">
+                    <i class="fas ${mod.icon}"></i>
+                    <h3>${currentLang === 'ar' ? mod.linkAr : mod.linkEn}</h3>
+                    <p>${currentLang === 'ar' ? mod.descAr : mod.descEn}</p>
+                </div>
+            `).join('');
+            
+            document.querySelectorAll('.tool-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const key = card.dataset.key;
+                    if(key) navigateToTool(key);
+                });
+            });
+        }
+
+        function buildTeam() {
+            const teamGrid = document.getElementById('team-grid');
+            if(!teamGrid) return;
+            teamGrid.innerHTML = teamMembers.map(member => {
+                const displayName = currentLang === 'ar' ? member.nameAr : member.nameEn;
+                return `
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="${member.imagePath}" alt="${displayName}" loading="lazy"
+                                onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\\'fas fa-user-circle\\' style=\\'font-size:3.5rem; color:var(--primary);\\'></i>';">
+                        </div>
+                        <h4>${displayName}</h4>
+                        <div class="team-social">
+                            <a href="${member.social.linkedin}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function applyLanguage() {
+            // Sidebar & header texts
+            document.getElementById('sidebarBrand').innerHTML = currentLang === 'ar' ? '⚡ Cyber<br>Pulse' : '⚡ CYBER<br>PULSE';
+            document.getElementById('sidebarTagline').innerText = currentLang === 'ar' ? 'مجموعة متقدمة للأمن السيبراني' : 'Advanced Security Suite';
+            document.getElementById('sidebarHomeTitle').innerText = currentLang === 'ar' ? '🏠 الرئيسية' : '🏠 DASHBOARD';
+            document.getElementById('homeLinkSide').innerText = currentLang === 'ar' ? 'الرئيسية' : 'Home';
+            document.getElementById('downloadLinkSide').innerText = currentLang === 'ar' ? 'تحميل' : 'Download';
+            document.getElementById('attackSideTitle').innerText = currentLang === 'ar' ? '⚔️ وحدات الهجوم' : '⚔️ ATTACK MODULES';
+            document.getElementById('defenseSideTitle').innerText = currentLang === 'ar' ? '🛡️ وحدات الدفاع' : '🛡️ DEFENSE MODULES';
+            
+            document.getElementById('brandTextTop').innerHTML = currentLang === 'ar' ? '⚡ Cyber<br>Pulse' : '⚡ CYBER<br>PULSE';
+            document.getElementById('taglineTop').innerText = currentLang === 'ar' ? 'مجموعة متقدمة للأمن السيبراني' : 'Advanced Security Suite';
+            document.getElementById('homeLinkTopSpan').innerText = currentLang === 'ar' ? 'الرئيسية' : 'Home';
+            document.getElementById('downloadLinkTopSpan').innerText = currentLang === 'ar' ? 'تحميل' : 'Download';
+            document.getElementById('heroTitle').innerHTML = currentLang === 'ar' ? '🛡️ Cyber Pulse - مجموعة أدوات الأمن السيبراني' : '🛡️ CyberPulse - Security Suite';
+            document.getElementById('heroDesc').innerHTML = currentLang === 'ar' ? 'منصة متكاملة لأدوات الاختبار الأمني والدفاع السيبراني<br>تعلم، اكتشف، وطبّق بأمان' : 'Integrated platform for security testing & defense<br>Learn, Discover & Apply Safely';
+            document.getElementById('totalToolsSpan').innerText = currentLang === 'ar' ? 'أداة تعليمية شاملة' : 'Comprehensive Tools';
+            document.getElementById('attackStatsSpan').innerText = currentLang === 'ar' ? 'تقنيات هجومية' : 'Attack Techniques';
+            document.getElementById('defenseStatsSpan').innerText = currentLang === 'ar' ? 'أنظمة دفاعية' : 'Defense Systems';
+            document.getElementById('downloadStatsSpan').innerText = currentLang === 'ar' ? 'ملف للتحميل' : 'Download File';
+            document.getElementById('attackSectionTitle').innerHTML = currentLang === 'ar' ? '⚔️ هجمات احترافية' : '⚔️ Professional Attacks';
+            document.getElementById('defenseSectionTitle').innerHTML = currentLang === 'ar' ? '🛡️ أدوات دفاعية' : '🛡️ Defense Tools';
+            document.getElementById('teamTitle').innerHTML = currentLang === 'ar' ? '👥 فريق العمل' : '👥 Work Team';
+            
+            // Download section translations
+            document.getElementById('downloadSectionTitle').innerText = currentLang === 'ar' ? '📥 تحميل CyberPulse Suite' : '📥 Download CyberPulse Suite';
+            document.getElementById('downloadSectionDesc').innerText = currentLang === 'ar' ? 'قم بتحميل النسخة الكاملة من CyberPulse Security Suite لتجربة جميع الأدوات' : 'Download the full version of CyberPulse Security Suite to try all tools';
+            document.getElementById('downloadFileName').innerText = currentLang === 'ar' ? 'CyberPulse_Security_Suite.zip' : 'CyberPulse_Security_Suite.zip';
+            document.getElementById('downloadFileInfo').innerText = currentLang === 'ar' ? 'الحجم: ~200MB | الإصدار: 1.0 | التاريخ: 2026' : 'Size: ~200MB | Version: 1.0 | Date: 2026';
+            document.getElementById('downloadBtnSpan').innerText = currentLang === 'ar' ? 'تحميل الآن' : 'Download Now';
+            
+            document.getElementById('copyright').innerText = currentLang === 'ar' ? '© 2025 Cyber Pulse | للأغراض التعليمية فقط' : '© 2025 CyberPulse | For educational purposes only';
+            document.getElementById('warningFooter').innerText = currentLang === 'ar' ? '⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح' : '⚠️ Use these tools only on your devices or with legal permission';
+            
+            buildSidebarLists();
+            buildTools();
+            buildTeam();
+            
+            if (currentLang === 'en') {
+                document.body.classList.add('en-mode');
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+            } else {
+                document.body.classList.remove('en-mode');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            }
+            const toggleBtn = document.getElementById('langToggleBtn');
+            if(toggleBtn) toggleBtn.innerText = currentLang === 'ar' ? '🇬🇧 EN' : '🇸🇦 عربي';
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            localStorage.setItem('cyberpulse_lang', currentLang);
+            applyLanguage();
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar?.classList.toggle('open');
+            overlay?.classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar?.classList.remove('open');
+            overlay?.classList.remove('active');
+        }
+
+        // Initialize links
+        function initLinks() {
+            // Home links
+            const homeLinks = [
+                document.getElementById('topHomeLink'),
+                document.getElementById('sidebarHomeLink')
+            ];
+            homeLinks.forEach(btn => {
+                if(btn) btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showMainSections();
+                });
+            });
+            
+            // Download links
+            const downloadLinks = [
+                document.getElementById('topDownloadLink'),
+                document.getElementById('sidebarDownloadLink')
+            ];
+            downloadLinks.forEach(btn => {
+                if(btn) btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showDownloadSection();
+                });
+            });
+        }
+
+        const langBtn = document.getElementById('langToggleBtn');
+        if(langBtn) langBtn.addEventListener('click', toggleLanguage);
+        
+        initLinks();
+        applyLanguage();
+        showMainSections();
+        
+        console.log("✅ CyberPulse - تم التحديث مع تبويب التحميل وترجمة كاملة");
+    </script>
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+</body>
+</html>
