@@ -6,6 +6,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%;
+            }
+        }
+    </style>
 </head>
 <body>
     <button class="mobile-menu-btn" onclick="toggleSidebar()">
@@ -58,23 +82,15 @@
                 </div>
                 <h1 id="toolTitle">🔥 أداة DOS - اختبار ضغط الخوادم</h1>
                 <p id="toolDesc">أداة اختبار ضغط الخوادم والشبكات لقياس قدرة التحمل</p>
-                <!-- <div class="        ">
-                    <a id="downloadBtn" class="download-btn" href="../assets/CyberPulse_Security_Suite.zip" download>
-                        <i class="fas fa-download"></i> <span id="downloadBtnText">تحميل الآن</span>
-                    </a>
-                </div> -->
+                
                 
             </div>
                 
             <!-- Video Section - نسخة مضبوطة -->
             <div class="tool-section">
                 <h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2>
-                <div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;">
-                    <video id="localVideo" width="100%" controls style="filter: brightness(2.9) contrast(1.15);">                        
-                        <source src="videos/Dos.mp4" type="video/mp4">
-                            <i class="fas fa-video-slash" style="font-size: 3rem; color: #03527A;"></i>
-                            <p style="margin-top: 1rem;">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p>
-                    </video>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/101-fMBRFp6p6vZpPZIDhkuBniIuEYJz4/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
                 </div>
                 <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً على جهاز اختبار خاص.</p>
             </div>
@@ -174,20 +190,20 @@
             toolTitle: { ar: '🔥 أداة DOS - اختبار ضغط الخوادم', en: '🔥 DOS Tool - Server Stress Testing' },
             toolDesc: { ar: 'أداة اختبار ضغط الخوادم والشبكات لقياس قدرة التحمل', en: 'Server and network stress testing tool to measure resilience' },
             videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' },
-            watchNote: { ar: '👆 شاهد الفيديو لترى كيفية استخدام الأداة خطوة بخطوة على جهاز اختبار خاص.', en: '👆 Watch the video to see how to use the tool step by step on a test machine.' },
-            whatTitle: { ar: '🤔 ما هي أداة DOS Tool؟', en: '🤔 What is DOS Tool?' },
+            watchNote: { ar: ' شاهد الفيديو لترى كيفية استخدام الأداة خطوة بخطوة على جهاز اختبار خاص.', en: ' Watch the video to see how to use the tool step by step on a test machine.' },
+            whatTitle: { ar: ' ما هي أداة DOS Tool؟', en: ' What is DOS Tool?' },
             whatText: { ar: 'هي أداة اختبار أمني تُستخدم لقياس قدرة الخوادم والمواقع على تحمل الضغط العالي. ليست أداة تخريبية بل أداة للمهندسين والمخترقين الأخلاقيين لاختبار أمان الأنظمة الخاصة بهم.', en: 'A security testing tool used to measure servers and websites ability to handle high pressure. Not a destructive tool, but a tool for engineers and ethical hackers to test the security of their own systems.' },
-            warningText: { ar: '⚠️ تنبيه قانوني هام: استخدام هذه الأداة على أي جهاز أو خادم لا تملكه أو لا تملك إذناً خطياً لاختباره غير قانوني ويعتبر جريمة معلوماتية في معظم الدول.', en: '⚠️ Important Legal Warning: Using this tool on any device or server you do not own or have written permission to test is illegal and considered a cybercrime in most countries.' },
-            howTitle: { ar: '⚙️ كيف تعمل الأداة؟', en: '⚙️ How does it work?' },
+            warningText: { ar: ' تنبيه قانوني هام: استخدام هذه الأداة على أي جهاز أو خادم لا تملكه أو لا تملك إذناً خطياً لاختباره غير قانوني ويعتبر جريمة معلوماتية في معظم الدول.', en: ' Important Legal Warning: Using this tool on any device or server you do not own or have written permission to test is illegal and considered a cybercrime in most countries.' },
+            howTitle: { ar: ' كيف تعمل الأداة؟', en: ' How does it work?' },
             howText: { ar: 'تقوم الأداة بإرسال عدد هائل من الطلبات (Requests) إلى الخادم المستهدف باستخدام تقنيات مختلفة، مما يستنزف موارده (CPU, RAM, Bandwidth) وقد يؤدي إلى بطء الخدمة أو توقفها مؤقتاً.', en: 'The tool sends a massive number of requests to the target server using different techniques, draining its resources (CPU, RAM, Bandwidth) which may lead to service slowdown or temporary interruption.' },
-            featuresTitle: { ar: '✨ الميزات الرئيسية:', en: '✨ Key Features:' },
+            featuresTitle: { ar: ' الميزات الرئيسية:', en: ' Key Features:' },
             feat1: { ar: '• 🔥 SYN Flood - استنزاف اتصالات TCP نصف المفتوحة', en: '• 🔥 SYN Flood - Drain half-open TCP connections' },
             feat2: { ar: '• 📡 UDP Flood - إغراق الخادم بحزم UDP عشوائية', en: '• 📡 UDP Flood - Flood server with random UDP packets' },
             feat3: { ar: '• 🌐 HTTP Flood (مطور) - هجوم على الطبقة السابعة (Layer 7)', en: '• 🌐 HTTP Flood (Enhanced) - Layer 7 attack' },
             feat4: { ar: '• 🐢 Slowloris - فتح اتصالات بطيئة جداً لشغل الخادم', en: '• 🐢 Slowloris - Open very slow connections to exhaust server' },
             feat5: { ar: '• 💀 Ping of Death - إرسال حزم ICMP ضخمة (يتطلب صلاحيات مدير)', en: '• 💀 Ping of Death - Send oversized ICMP packets (Admin required)' },
             feat6: { ar: '• 🎲 Mixed Attack - خلط عشوائي بين UDP, TCP, HTTP', en: '• 🎲 Mixed Attack - Random mix of UDP, TCP, HTTP' },
-            useTitle: { ar: '🖱️ كيف تستخدم الأداة في Cyber Pulse؟', en: '🖱️ How to use in CyberPulse?' },
+            useTitle: { ar: ' كيف تستخدم الأداة في Cyber Pulse؟', en: ' How to use in CyberPulse?' },
             step1: { ar: '<strong>اختر الهدف (Target):</strong> أدخل <code>IP</code> أو <code>Domain</code> (مثال: <code>192.168.1.100</code> أو <code>testserver.com</code>).', en: '<strong>Choose Target:</strong> Enter <code>IP</code> or <code>Domain</code> (e.g., <code>192.168.1.100</code> or <code>testserver.com</code>).' },
             step2: { ar: '<strong>حدد المنفذ (Port):</strong> غالباً <code>80</code> للـ HTTP أو <code>443</code> للـ HTTPS.', en: '<strong>Set Port:</strong> Usually <code>80</code> for HTTP or <code>443</code> for HTTPS.' },
             step3: { ar: '<strong>اختر نوع الهجوم (Method):</strong> من القائمة المنسدلة (مثل HTTP Flood للضغط على الويب).', en: '<strong>Select Attack Method:</strong> From dropdown (e.g., HTTP Flood for web servers).' },
@@ -197,13 +213,13 @@
             step7: { ar: '<strong>اضغط 🚀 START ATTACK:</strong> وسترى الإحصائيات مباشرة (Packets Sent, Speed).', en: '<strong>Press 🚀 START ATTACK:</strong> You will see live statistics (Packets Sent, Speed).' },
             step8: { ar: '<strong>لإيقاف الهجوم:</strong> اضغط 🛑 STOP.', en: '<strong>To stop attack:</strong> Press 🛑 STOP.' },
             tipText: { ar: 'نصيحة احترافية: للحصول على أداء أقصى، استخدم HTTP Flood مع Keep-Alive وزيادة عدد Threads إلى 200-500.', en: 'Pro tip: For maximum performance, use HTTP Flood with Keep-Alive and increase Threads to 200-500.' },
-            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            notesTitle: { ar: ' ملاحظات مهمة', en: ' Important Notes' },
             note1: { ar: '✅ <strong>للاستخدام التعليمي فقط:</strong> اختبر على جهازك المحلي (127.0.0.1) أو خادم تملكه.', en: '✅ <strong>For educational use only:</strong> Test on your local machine (127.0.0.1) or a server you own.' },
             note2: { ar: '✅ <strong>Ping of Death</strong> يتطلب تشغيل البرنامج كـ <strong>Administrator</strong>.', en: '✅ <strong>Ping of Death</strong> requires running as <strong>Administrator</strong>.' },
             note3: { ar: '✅ الأداة تُستخدم في دورات اختبار الاختراق (Penetration Testing) وفريق Red Teaming.', en: '✅ The tool is used in Penetration Testing courses and Red Teaming.' },
             note4: { ar: '✅ يمكنك حفظ سجل الهجوم (Save Log) لتحليله لاحقاً.', en: '✅ You can save the attack log for later analysis.' },
             copyright: { ar: '© 2025 Cyber Pulse | للأغراض التعليمية فقط', en: '© 2025 CyberPulse | For educational purposes only' },
-            warningFooter: { ar: '⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: '⚠️ Use these tools only on your own devices or with explicit legal permission' },
+            warningFooter: { ar: ' استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: ' Use these tools only on your own devices or with explicit legal permission' },
             downloadBtnText: { ar: 'تحميل الآن', en: 'Download Now' }
         };
         

@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%;
+            }
+        }
+    </style>
 </head>
 <body>
     <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -25,7 +49,12 @@
                         </a>
                 </div> -->
             </div>
-            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2><div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;"><video width="100%" controls style="filter: brightness(3) contrast(1.1);"><source src="videos/Encryption.mp4" type="video/mp4"><p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p></video></div><p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً.</p></div>
+            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1cTEKIOdCnVVq24ny5tuRfEd3jvja3HyG/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً.</p>
+            </div>
             <div class="tool-section"><h2><i class="fas fa-question-circle"></i> <span id="whatTitle">🤔 ما هو التشفير؟</span></h2><p id="whatText">التشفير هو عملية تحويل البيانات من شكلها القابل للقراءة إلى شكل غير مفهوم باستخدام مفتاح سري. يمكن فقط للأشخاص الذين يمتلكون المفتاح الصحيح فك التشفير وقراءة البيانات الأصلية.</p></div>
             <div class="tool-section"><h2><i class="fas fa-star"></i> <span id="featuresTitle">✨ الخوارزميات المدعومة</span></h2><div class="feature-grid"><div class="feature-card"><i class="fas fa-key"></i><h4>Fernet (AES-128)</h4><p id="feat1Desc">تشفير متماثل مع توثيق</p></div><div class="feature-card"><i class="fas fa-lock"></i><h4>AES-256-CBC</h4><p id="feat2Desc">المعيار العالمي للتشفير</p></div><div class="feature-card"><i class="fas fa-shield-alt"></i><h4>DES / 3DES</h4><p id="feat3Desc">خوارزميات قديمة للتعلم</p></div><div class="feature-card"><i class="fas fa-fingerprint"></i><h4>MD5 / SHA</h4><p id="feat4Desc">هاشات للتحقق من السلامة</p></div></div></div>
             <div class="tool-section"><h2><i class="fas fa-mouse-pointer"></i> <span id="useTitle">🖱️ كيف تستخدم الأداة؟</span></h2><ol><li id="step1"><strong>اختر الخوارزمية</strong> من القائمة المنسدلة</li><li id="step2"><strong>أدخل النص</strong> الذي تريد تشفيره</li><li id="step3"><strong>اضغط Generate Key</strong> لتوليد مفتاح عشوائي آمن</li><li id="step4"><strong>اضغط Encrypt/Hash</strong> لتوليد النص المشفر</li><li id="step5"><strong>لفك التشفير</strong>، انسخ النص المشفر وأدخل المفتاح ثم اضغط Decrypt</li></ol></div>
@@ -45,33 +74,45 @@
             homeBread: { ar: 'الرئيسية', en: 'Home' }, toolNameBread: { ar: 'أدوات التشفير', en: 'Encryption Tools' },
             toolTitle: { ar: '🔐 أدوات التشفير', en: '🔐 Encryption Tools' }, toolDesc: { ar: 'تشفير وفك تشفير البيانات باستخدام خوارزميات متعددة (AES, DES, 3DES, Fernet) وإنشاء الهاشات', en: 'Encrypt/Decrypt data using multiple algorithms (AES, DES, 3DES, Fernet) and generate hashes' },
             videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' }, videoError: { ar: '❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود', en: '❌ Video playback not supported or video missing' }, watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً.', en: '🎥 Tutorial video – Watch how to use the tool in practice.' },
-            whatTitle: { ar: '🤔 ما هو التشفير؟', en: '🤔 What is Encryption?' }, whatText: { ar: 'التشفير هو عملية تحويل البيانات من شكلها القابل للقراءة إلى شكل غير مفهوم باستخدام مفتاح سري. يمكن فقط للأشخاص الذين يمتلكون المفتاح الصحيح فك التشفير.', en: 'Encryption is the process of converting readable data into an unreadable format using a secret key. Only those with the correct key can decrypt.' },
-            featuresTitle: { ar: '✨ الخوارزميات المدعومة', en: '✨ Supported Algorithms' },
+            whatTitle: { ar: ' ما هو التشفير؟', en: ' What is Encryption?' }, whatText: { ar: 'التشفير هو عملية تحويل البيانات من شكلها القابل للقراءة إلى شكل غير مفهوم باستخدام مفتاح سري. يمكن فقط للأشخاص الذين يمتلكون المفتاح الصحيح فك التشفير.', en: 'Encryption is the process of converting readable data into an unreadable format using a secret key. Only those with the correct key can decrypt.' },
+            featuresTitle: { ar: ' الخوارزميات المدعومة', en: ' Supported Algorithms' },
             feat1Desc: { ar: 'تشفير متماثل مع توثيق', en: 'Symmetric encryption with authentication' },
             feat2Desc: { ar: 'المعيار العالمي للتشفير', en: 'Global encryption standard' },
             feat3Desc: { ar: 'خوارزميات قديمة للتعلم', en: 'Legacy algorithms for learning' },
             feat4Desc: { ar: 'هاشات للتحقق من السلامة', en: 'Hashes for integrity verification' },
-            useTitle: { ar: '🖱️ كيف تستخدم الأداة؟', en: '🖱️ How to use?' },
+            useTitle: { ar: ' كيف تستخدم الأداة؟', en: ' How to use?' },
             step1: { ar: '<strong>اختر الخوارزمية</strong> من القائمة المنسدلة', en: '<strong>Select algorithm</strong> from dropdown' },
             step2: { ar: '<strong>أدخل النص</strong> الذي تريد تشفيره', en: '<strong>Enter text</strong> to encrypt' },
             step3: { ar: '<strong>اضغط Generate Key</strong> لتوليد مفتاح عشوائي آمن', en: '<strong>Click Generate Key</strong> to create a secure random key' },
             step4: { ar: '<strong>اضغط Encrypt/Hash</strong> لتوليد النص المشفر', en: '<strong>Click Encrypt/Hash</strong> to generate encrypted text' },
             step5: { ar: '<strong>لفك التشفير</strong>، انسخ النص المشفر وأدخل المفتاح ثم اضغط Decrypt', en: '<strong>To decrypt</strong>, paste encrypted text and enter the key then click Decrypt' },
-            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            notesTitle: { ar: ' ملاحظات مهمة', en: ' Important Notes' },
             note1: { ar: '✅ AES-256 يعتبر المعيار الذهبي للتشفير المتماثل حالياً', en: '✅ AES-256 is the golden standard for symmetric encryption currently' },
             note2: { ar: '✅ MD5 و SHA-1 يعتبران ضعفاء ولا ينصح باستخدامهما لكلمات المرور', en: '✅ MD5 and SHA-1 are weak and not recommended for passwords' },
             note3: { ar: '✅ احتفظ بالمفتاح في مكان آمن - فقده يعني فقدان البيانات إلى الأبد', en: '✅ Keep the key safe - losing it means losing data forever' },
             note4: { ar: '✅ Base64 ليس تشفيراً بل ترميز - لا تستخدمه لحماية البيانات الحساسة', en: '✅ Base64 is encoding, not encryption - do not use for sensitive data' },
             copyright: { ar: '© 2025 Cyber Pulse | للأغراض التعليمية فقط', en: '© 2025 CyberPulse | For educational purposes only' },
-            warningFooter: { ar: '⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: '⚠️ Use these tools only on your devices or with explicit legal permission' },
+            warningFooter: { ar: ' استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: ' Use these tools only on your devices or with explicit legal permission' },
             downloadBtnText: { ar: 'تحميل الآن', en: 'Download Now' },
             langBtnText: { ar: '🇬🇧 English', en: '🇸🇦 عربي' }
         };
         function setLanguage(lang) { currentLang = lang; localStorage.setItem('cyberpulse_lang', lang); document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); document.documentElement.setAttribute('lang', lang); for (const [key, value] of Object.entries(translations)) { if (key === 'pageTitle') document.title = value[lang]; else if (key === 'langBtnText') { const btn = document.getElementById('langToggleBtn'); if (btn) btn.textContent = value[lang]; } else { const element = document.getElementById(key); if (element) element.innerHTML = value[lang]; } } }
-        function toggleSidebar() { document.querySelector('.sidebar')?.classList.toggle('open'); }
+        function toggleSidebar() { 
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar?.classList.toggle('open');
+            overlay?.classList.toggle('active');
+        }
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar?.classList.remove('open');
+            overlay?.classList.remove('active');
+        }
         function toggleLanguage() { setLanguage(currentLang === 'ar' ? 'en' : 'ar'); }
         setLanguage(currentLang); document.getElementById('langToggleBtn')?.addEventListener('click', toggleLanguage);
-        document.querySelectorAll('.sidebar a').forEach(l => l.addEventListener('click', () => { if(window.innerWidth <= 768) document.querySelector('.sidebar')?.classList.remove('open'); }));
+        document.querySelectorAll('.sidebar a').forEach(l => l.addEventListener('click', () => { if(window.innerWidth <= 768) { document.querySelector('.sidebar')?.classList.remove('open'); document.getElementById('sidebarOverlay')?.classList.remove('active'); } }));
     </script>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 </body>
 </html>

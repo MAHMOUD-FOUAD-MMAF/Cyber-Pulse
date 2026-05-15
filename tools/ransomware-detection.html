@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%;
+            }
+        }
+    </style>
 </head>
 <body>
     <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -25,7 +49,12 @@
                     </a>
                 </div> -->
             </div>
-            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2><div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;"><video width="100%" controls style="filter: brightness(3) contrast(1.1);"><source src="videos/Ransomware.mp4" type="video/mp4"><p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p></video></div><p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة اكتشاف الملفات المشفرة.</p></div>
+            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1awslSSDyAdLGv68BVpfbsZ-m0sh0awvB/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة اكتشاف الملفات المشفرة.</p>
+            </div>
             <div class="tool-section"><h2><i class="fas fa-question-circle"></i> <span id="whatTitle">🤔 ما هو برنامج الفدية؟</span></h2><p id="whatText">برنامج الفدية هو نوع من البرامج الضارة الذي يقوم بتشفير ملفات الضحية ثم يطلب فدية مالية مقابل مفتاح فك التشفير. تنتشر هذه البرامج بشكل كبير وتسبب خسائر بمليارات الدولارات سنوياً.</p><div class="critical-box"><i class="fas fa-exclamation-triangle"></i> <span id="criticalText">🚨 تنبيه خطير: إذا كنت تشك في إصابة جهازك بـ Ransomware، افصله فوراً عن الشبكة ولا تدفع الفدية أبداً.</span></div></div>
             <div class="tool-section"><h2><i class="fas fa-star"></i> <span id="featuresTitle">✨ ميزات الأداة</span></h2><div class="feature-grid"><div class="feature-card"><i class="fas fa-chart-line"></i><h4 id="feat1Title">تحليل الإنتوبي</h4><p id="feat1Desc">قياس العشوائية في البيانات</p></div><div class="feature-card"><i class="fas fa-file-alt"></i><h4 id="feat2Title">فحص الامتدادات</h4><p id="feat2Desc">الكشف عن امتدادات Ransomware</p></div><div class="feature-card"><i class="fas fa-clock"></i><h4 id="feat3Title">تحليل التوقيت</h4><p id="feat3Desc">فحص الملفات المعدلة مؤخراً</p></div><div class="feature-card"><i class="fas fa-chart-pie"></i><h4 id="feat4Title">تقرير مفصل</h4><p id="feat4Desc">تصدير النتائج بصيغة JSON/TXT</p></div></div></div>
             <div class="tool-section"><h2><i class="fas fa-mouse-pointer"></i> <span id="useTitle">🖱️ كيف تستخدم الأداة؟</span></h2><ol><li id="step1"><strong>اختر المجلد المستهدف:</strong> اضغط على BROWSE واختر المجلد</li><li id="step2"><strong>اضبط عتبة الإنتوبي:</strong> القيمة الافتراضية هي 7.5</li><li id="step3"><strong>ابدأ الفحص:</strong> اضغط على ▶ START SCAN</li><li id="step4"><strong>راجع النتائج:</strong> ستظهر الملفات المشبوهة في الجدول</li><li id="step5"><strong>صدّر التقرير:</strong> اضغط على 📥 EXPORT RESULTS</li></ol></div>

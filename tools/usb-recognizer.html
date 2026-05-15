@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%;
+            }
+        }
+    </style>
 </head>
 <body>
     <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -25,7 +49,12 @@
                     </a>
                 </div> -->
             </div>
-            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2><div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;"><video width="100%" controls style="filter: brightness(3.1) contrast(1.1);"><source src="videos/USB%20recogonizer.mp4" type="video/mp4"><p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p></video></div><p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة التعرف على أجهزة USB واستخراج VID و PID.</p></div>
+            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1ZLg8HO3BByfYXIEd4ZFdfUYgYo0QSirR/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة التعرف على أجهزة USB واستخراج VID و PID.</p>
+            </div>
             <div class="tool-section"><h2><i class="fas fa-question-circle"></i> <span id="whatTitle">🤔 ما هو VID و PID؟</span></h2><p id="whatText">كل جهاز USB له معرفين فريدين: VID (Vendor ID) و PID (Product ID). هذه المعرفات تُستخدم من قبل نظام التشغيل للتعرف على الجهاز وتحميل التعريف المناسب.</p></div>
             <div class="tool-section"><h2><i class="fas fa-star"></i> <span id="featuresTitle">✨ ميزات الأداة</span></h2><div class="feature-grid"><div class="feature-card"><i class="fas fa-usb"></i><h4 id="feat1Title">مراقبة فورية</h4><p id="feat1Desc">يكتشف تلقائياً عند إدخال/إخراج USB</p></div><div class="feature-card"><i class="fas fa-database"></i><h4 id="feat2Title">قاعدة بيانات</h4><p id="feat2Desc">أكثر من 500 VID مع أسماء الشركات</p></div><div class="feature-card"><i class="fas fa-history"></i><h4 id="feat3Title">سجل كامل</h4><p id="feat3Desc">يسجل كل الأجهزة المتصلة</p></div><div class="feature-card"><i class="fas fa-download"></i><h4 id="feat4Title">تصدير السجل</h4><p id="feat4Desc">تصدير إلى ملف TXT</p></div></div></div>
             <div class="tool-section"><h2><i class="fas fa-mouse-pointer"></i> <span id="useTitle">🖱️ كيف تستخدم الأداة؟</span></h2><ol><li id="step1"><strong>ابدأ المراقبة:</strong> اضغط على START MONITORING</li><li id="step2"><strong>أدخل جهاز USB:</strong> قم بتوصيل أي جهاز USB</li><li id="step3"><strong>راقب الاكتشاف:</strong> ستظهر تفاصيل الجهاز فوراً</li><li id="step4"><strong>تصدير التقرير:</strong> اضغط Export Log لحفظ السجل</li></ol></div>
@@ -45,18 +74,18 @@
             homeBread: { ar: 'الرئيسية', en: 'Home' }, toolNameBread: { ar: 'التعرف على أجهزة USB', en: 'USB Recognizer' },
             toolTitle: { ar: '🔌 التعرف على أجهزة USB', en: '🔌 USB Device Recognizer' }, toolDesc: { ar: 'أداة متخصصة للتعرف على VID و PID لأجهزة USB المتصلة وتحديد الشركة المصنعة', en: 'Specialized tool for identifying VID and PID of connected USB devices and determining manufacturer' },
             videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' }, videoError: { ar: '❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود', en: '❌ Video playback not supported or video missing' }, watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة التعرف على أجهزة USB واستخراج VID و PID.', en: '🎥 Tutorial video – Watch how to identify USB devices and extract VID and PID.' },
-            whatTitle: { ar: '🤔 ما هو VID و PID؟', en: '🤔 What are VID and PID?' }, whatText: { ar: 'كل جهاز USB له معرفين فريدين: VID (Vendor ID) و PID (Product ID). هذه المعرفات تُستخدم من قبل نظام التشغيل للتعرف على الجهاز وتحميل التعريف المناسب.', en: 'Every USB device has two unique identifiers: VID (Vendor ID) and PID (Product ID). These identifiers are used by the OS to recognize the device and load the appropriate driver.' },
-            featuresTitle: { ar: '✨ ميزات الأداة', en: '✨ Tool Features' },
+            whatTitle: { ar: ' ما هو VID و PID؟', en: ' What are VID and PID?' }, whatText: { ar: 'كل جهاز USB له معرفين فريدين: VID (Vendor ID) و PID (Product ID). هذه المعرفات تُستخدم من قبل نظام التشغيل للتعرف على الجهاز وتحميل التعريف المناسب.', en: 'Every USB device has two unique identifiers: VID (Vendor ID) and PID (Product ID). These identifiers are used by the OS to recognize the device and load the appropriate driver.' },
+            featuresTitle: { ar: ' ميزات الأداة', en: ' Tool Features' },
             feat1Title: { ar: 'مراقبة فورية', en: 'Live Monitoring' }, feat1Desc: { ar: 'يكتشف تلقائياً عند إدخال/إخراج USB', en: 'Automatically detects USB insertion/removal' },
             feat2Title: { ar: 'قاعدة بيانات', en: 'Database' }, feat2Desc: { ar: 'أكثر من 500 VID مع أسماء الشركات', en: 'Over 500 VIDs with company names' },
             feat3Title: { ar: 'سجل كامل', en: 'Full Log' }, feat3Desc: { ar: 'يسجل كل الأجهزة المتصلة', en: 'Records all connected devices' },
             feat4Title: { ar: 'تصدير السجل', en: 'Export Log' }, feat4Desc: { ar: 'تصدير إلى ملف TXT', en: 'Export to TXT file' },
-            useTitle: { ar: '🖱️ كيف تستخدم الأداة؟', en: '🖱️ How to use?' },
+            useTitle: { ar: ' كيف تستخدم الأداة؟', en: ' How to use?' },
             step1: { ar: '<strong>ابدأ المراقبة:</strong> اضغط على START MONITORING', en: '<strong>Start monitoring:</strong> Click START MONITORING' },
             step2: { ar: '<strong>أدخل جهاز USB:</strong> قم بتوصيل أي جهاز USB', en: '<strong>Insert USB device:</strong> Connect any USB device' },
             step3: { ar: '<strong>راقب الاكتشاف:</strong> ستظهر تفاصيل الجهاز فوراً', en: '<strong>Watch detection:</strong> Device details will appear instantly' },
             step4: { ar: '<strong>تصدير التقرير:</strong> اضغط Export Log لحفظ السجل', en: '<strong>Export report:</strong> Click Export Log to save' },
-            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            notesTitle: { ar: ' ملاحظات مهمة', en: ' Important Notes' },
             note1: { ar: '✅ <strong>Windows فقط:</strong> الأداة تعمل على نظام Windows فقط', en: '✅ <strong>Windows only:</strong> The tool works on Windows only' },
             note2: { ar: '✅ <strong>قاعدة البيانات:</strong> تحتوي على أكثر من 500 شركة مصنعة', en: '✅ <strong>Database:</strong> Contains over 500 manufacturers' },
             note3: { ar: '✅ <strong>لا يتم تخزين بيانات حساسة:</strong> الأداة تقرأ فقط البيانات التعريفية', en: '✅ <strong>No sensitive data stored:</strong> The tool only reads metadata' },

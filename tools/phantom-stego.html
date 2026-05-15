@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%;
+            }
+        }
+    </style>
 </head>
 <body>
     <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -68,11 +92,8 @@
             
             <div class="tool-section">
                 <h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2>
-                <div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;">
-                    <video id="localVideo" width="100%" controls style="filter: brightness(3) contrast(1.1);">
-                        <source src="videos/Phantom.mp4" type="video/mp4">
-                        <p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p>
-                    </video>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/188ZvaTenrLZFTJbIVOu9GQKiCSVIVWcb/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
                 </div>
                 <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً على جهاز اختبار خاص.</p>
             </div>
@@ -188,10 +209,10 @@
             videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' },
             videoError: { ar: '❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود', en: '❌ Your browser does not support video playback or the video is missing' },
             watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً على جهاز اختبار خاص.', en: '🎥 Tutorial video – Watch how to use the tool on a test machine.' },
-            whatTitle: { ar: '🤔 ما هي أداة Phantom (الستيغانوغرافي)؟', en: '🤔 What is Phantom (Steganography)?' },
+            whatTitle: { ar: ' ما هي أداة Phantom (الستيغانوغرافي)؟', en: ' What is Phantom (Steganography)?' },
             whatText: { ar: 'فن إخفاء البيانات داخل وسائط أخرى. تسمح لك هذه الأداة بإخفاء رسائل أو ملفات كاملة داخل صور عادية دون أن يلاحظ أحد وجودها.', en: 'The art of hiding data within other media. This tool allows you to hide messages or entire files inside ordinary images without anyone noticing.' },
-            warningText: { ar: '⚠️ تنبيه قانوني هام: استخدام تقنيات إخفاء البيانات لأغراض غير قانونية يعتبر جريمة في معظم الدول.', en: '⚠️ Important Legal Warning: Using data hiding techniques for illegal purposes is a crime in most countries.' },
-            featuresTitle: { ar: '✨ الميزات الرئيسية', en: '✨ Key Features' },
+            warningText: { ar: ' تنبيه قانوني هام: استخدام تقنيات إخفاء البيانات لأغراض غير قانونية يعتبر جريمة في معظم الدول.', en: ' Important Legal Warning: Using data hiding techniques for illegal purposes is a crime in most countries.' },
+            featuresTitle: { ar: ' الميزات الرئيسية', en: ' Key Features' },
             feat1Title: { ar: 'إخفاء البيانات', en: 'Hide Data' },
             feat1Desc: { ar: 'إخفاء النصوص أو الملفات داخل الصور بشكل آمن', en: 'Securely hide text or files inside images' },
             feat2Title: { ar: 'تحميل Payload', en: 'Load Payload' },
@@ -200,18 +221,18 @@
             feat3Desc: { ar: 'فك التشفير واستخراج الرسائل المخفية من الصور', en: 'Decrypt and extract hidden messages from images' },
             feat4Title: { ar: 'دعم الصيغ', en: 'Format Support' },
             feat4Desc: { ar: 'PNG, JPG, JPEG, BMP (PNG موصى به للجودة)', en: 'PNG, JPG, JPEG, BMP (PNG recommended for quality)' },
-            howTitle: { ar: '⚙️ كيف تعمل الأداة؟', en: '⚙️ How does it work?' },
+            howTitle: { ar: ' كيف تعمل الأداة؟', en: ' How does it work?' },
             howText: { ar: 'تستخدم الأداة تقنية LSB (Least Significant Bit) حيث يتم تعديل البتات الأخيرة من كل بكسل في الصورة لتخزين البيانات المشفرة.', en: 'The tool uses LSB (Least Significant Bit) technology where the last bits of each pixel are modified to store encrypted data.' },
             howInfo: { ar: 'شرح مبسط:', en: 'Simple explanation:' },
             howInfoText: { ar: 'تخيل أن كل بكسل في الصورة له لون معين. عندما نغيّر آخر بت من هذا اللون، فإن لون البكسل يتغير بشكل طفيف جداً لا تراه العين. هذه البتات الصغيرة تجتمع لتشكل رسالتك السرية!', en: 'Imagine each pixel has a specific color. When we change the last bit of this color, the pixel changes very slightly - invisible to the eye. These tiny bits combine to form your secret message!' },
-            useTitle: { ar: '🖱️ كيف تستخدم الأداة؟', en: '🖱️ How to use?' },
+            useTitle: { ar: ' كيف تستخدم الأداة؟', en: ' How to use?' },
             step1: { ar: '<strong>اختر الصورة:</strong> اضغط على زر 📁 SELECT TARGET واختر صورة (يفضل PNG).', en: '<strong>Choose image:</strong> Click 📁 SELECT TARGET and select an image (PNG preferred).' },
             step2: { ar: '<strong>اكتب الرسالة السرية:</strong> في حقل MESSAGE CONTENT، اكتب النص الذي تريد إخفاءه.', en: '<strong>Write secret message:</strong> Enter the text you want to hide in the MESSAGE CONTENT field.' },
             step3: { ar: '<strong>(اختياري) أضف ملف Payload:</strong> اضغط 🚀 IMPORT PAYLOAD لإرفاق ملف كامل.', en: '<strong>(Optional) Add Payload:</strong> Click 🚀 IMPORT PAYLOAD to attach a full file.' },
             step4: { ar: '<strong>إخفاء البيانات:</strong> اضغط على 🔒 HIDE DATA واختر مكان حفظ الصورة الجديدة.', en: '<strong>Hide data:</strong> Click 🔒 HIDE DATA and choose where to save the new image.' },
             step5: { ar: '<strong>استخراج البيانات:</strong> لفك التشفير، اختر صورة تحتوي على بيانات مخفية واضغط 🔓 REVEAL DATA.', en: '<strong>Extract data:</strong> To decode, select an image with hidden data and click 🔓 REVEAL DATA.' },
             tipText: { ar: 'نصيحة مهمة: الصيغ الضاغطة مثل JPEG قد تفسد البيانات المخفية. استخدم PNG للحصول على أفضل النتائج.', en: 'Important tip: Compressed formats like JPEG may corrupt hidden data. Use PNG for best results.' },
-            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            notesTitle: { ar: ' ملاحظات مهمة', en: ' Important Notes' },
             note1: { ar: '✅ <strong>صيغة PNG هي الأفضل:</strong> PNG لا تستخدم ضغطاً يفقد البيانات (Lossless)', en: '✅ <strong>PNG is best:</strong> PNG uses lossless compression' },
             note2: { ar: '✅ <strong>سعة التخزين:</strong> يمكنك إخفاء حوالي 1 بايت لكل 8 بكسلات', en: '✅ <strong>Storage capacity:</strong> You can hide about 1 byte per 8 pixels' },
             note3: { ar: '✅ <strong>Payload:</strong> يمكنك إخفاء أي نوع من الملفات كـ Payload', en: '✅ <strong>Payload:</strong> You can hide any file type as payload' },

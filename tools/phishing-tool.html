@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%;
+            }
+        }
+    </style>
 </head>
 <body>
     <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -57,20 +81,13 @@
                 </div>
                 <h1 id="toolTitle">🎣 أداة التصيد الاحتيالي - إنشاء صفحات تصيد</h1>
                 <p id="toolDesc">إنشاء صفحات مزيفة تشبه مواقع حقيقية لاختبار الوعي الأمني</p>
-                <!-- <div class="tool-actions">
-                    <a id="downloadBtn" class="download-btn" href="../assets/Phishing_Tool.zip" download>
-                        <i class="fas fa-download"></i> <span id="downloadBtnText">تحميل الآن</span>
-                    </a>
-                </div> -->
+               
             </div>
             
             <div class="tool-section">
                 <h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2>
-                <div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;">
-                    <video id="localVideo" width="100%" controls style="filter: brightness(3) contrast(1.1);">
-                        <source src="videos/Phishing.mp4" type="video/mp4">
-                        <p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p>
-                    </video>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/19xDB3-PkaemNGd6PHNZ-0LZ2C1d7TjZ8/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
                 </div>
                 <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً على جهاز اختبار خاص.</p>
             </div>
@@ -164,10 +181,10 @@
             videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' },
             videoError: { ar: '❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود', en: '❌ Your browser does not support video playback or the video is missing' },
             watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً على جهاز اختبار خاص.', en: '🎥 Tutorial video – Watch how to use the tool on a test machine.' },
-            whatTitle: { ar: '🤔 ما هي أداة التصيد الاحتيالي؟', en: '🤔 What is Phishing Tool?' },
+            whatTitle: { ar: ' ما هي أداة التصيد الاحتيالي؟', en: ' What is Phishing Tool?' },
             whatText: { ar: 'أداة تعليمية تُستخدم لإنشاء صفحات ويب مزيفة تحاكي مواقع حقيقية مثل فيسبوك وجيميل. تستخدم في دورات التوعية الأمنية لتعليم المستخدمين كيفية اكتشاف التصيد الإلكتروني.', en: 'An educational tool used to create fake web pages that mimic real sites like Facebook and Gmail. Used in security awareness courses to teach users how to detect phishing.' },
-            warningText: { ar: '⚠️ للاستخدام التعليمي فقط في بيئات الاختبار الآمنة.', en: '⚠️ For educational use only in safe test environments.' },
-            howTitle: { ar: '⚙️ كيف تعمل الأداة؟', en: '⚙️ How does it work?' },
+            warningText: { ar: ' للاستخدام التعليمي فقط في بيئات الاختبار الآمنة.', en: ' For educational use only in safe test environments.' },
+            howTitle: { ar: ' كيف تعمل الأداة؟', en: ' How does it work?' },
             howText: { ar: 'تقوم الأداة بإنشاء ملف HTML كامل يحاكي واجهة الموقع المستهدف. عند إدخال المستخدم لبياناته، يتم إرسالها إلى خادم محدد (Webhook) ويتم توجيه المستخدم إلى الموقع الحقيقي.', en: 'The tool generates a complete HTML file that mimics the target site interface. When the user enters their credentials, they are sent to a specified server (Webhook) and the user is redirected to the real site.' },
             featuresTitle: { ar: '✨ القوالب المتاحة:', en: '✨ Available Templates:' },
             feat1: { ar: '📘 فيسبوك - قالب احترافي', en: '📘 Facebook - Professional template' },
@@ -176,20 +193,20 @@
             feat4: { ar: '📷 إنستغرام - قالب احترافي', en: '📷 Instagram - Professional template' },
             feat5: { ar: '🏦 بنوك - قالب بنكي', en: '🏦 Banking - Banking template' },
             feat6: { ar: '🎨 صفحة مخصصة (Custom)', en: '🎨 Custom Page' },
-            useTitle: { ar: '🖱️ كيف تستخدم الأداة؟', en: '🖱️ How to use?' },
+            useTitle: { ar: ' كيف تستخدم الأداة؟', en: ' How to use?' },
             step1: { ar: 'اختر نوع الصفحة (Page Type): فيسبوك، جيميل، تويتر، أو مخصص', en: 'Select page type: Facebook, Gmail, Twitter, or Custom' },
             step2: { ar: 'أدخل رابط Webhook (مثل webhook.site) لاستقبال البيانات', en: 'Enter Webhook URL (e.g., webhook.site) to receive data' },
             step3: { ar: 'اختر اسم الصفحة (Page Name) الذي سيظهر للضحية', en: 'Choose the page name that will appear to the victim' },
             step4: { ar: 'اضغط ⚡ GENERATE PHISHING PAGE', en: 'Click ⚡ GENERATE PHISHING PAGE' },
             step5: { ar: 'احفظ الصفحة (💾 SAVE PAGE) وانشرها في بيئة اختبار آمنة', en: 'Save the page (💾 SAVE PAGE) and deploy in a safe test environment' },
             tipText: { ar: 'استخدم webhook.site لاستقبال البيانات بشكل آمن للاختبار.', en: 'Use webhook.site to safely receive data for testing.' },
-            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            notesTitle: { ar: ' ملاحظات مهمة', en: ' Important Notes' },
             note1: { ar: '✅ للاستخدام التعليمي فقط في بيئات الاختبار الآمنة', en: '✅ For educational use only in safe test environments' },
             note2: { ar: '✅ يُنصح باستخدام HTTPS لجعل الصفحة أكثر واقعية', en: '✅ Using HTTPS is recommended to make the page more realistic' },
             note3: { ar: '✅ يمكن تخصيص HTML بالكامل باستخدام خيار Custom Page', en: '✅ HTML can be fully customized using the Custom Page option' },
             copyright: { ar: '© 2025 Cyber Pulse | للأغراض التعليمية فقط', en: '© 2025 CyberPulse | For educational purposes only' },
             downloadBtnText: { ar: 'تحميل الآن', en: 'Download Now' },
-warningFooter: { ar: '⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: '⚠️ Use these tools only on your own devices or with explicit legal permission' },
+            warningFooter: { ar: '⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: '⚠️ Use these tools only on your own devices or with explicit legal permission' },
             langBtnText: { ar: '🇬🇧 English', en: '🇸🇦 عربي' }
         };
         

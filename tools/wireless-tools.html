@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+    </style>
 </head>
 <body>
     <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -24,34 +45,27 @@
                 <div class="breadcrumb"><a href="../index.html" id="homeBread">الرئيسية</a> / <span id="toolNameBread">أدوات الشبكات اللاسلكية</span></div>
                 <h1 id="toolTitle">📡 أدوات الشبكات اللاسلكية المتقدمة</h1>
                 <p id="toolDesc">مجموعة متكاملة من 8 أدوات احترافية لاختبار أمان شبكات WiFi</p>
-                <!-- <div class="tool-actions">
-                    <a id="downloadBtn" class="download-btn" href="../assets/CyberPulse_Security_Suite.zip" download>
-                        <i class="fas fa-download"></i> <span id="downloadBtnText">تحميل الآن</span>
-                    </a>
-                </div> -->
-                
             </div>
                 
-            
             <div class="tool-section">
                 <h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2>
-                <div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;">
-                    <video id="localVideo" width="100%" controls style="filter: brightness(3) contrast(1.1);">
-                        <source src="videos/Wireless%20Attack.mp4" type="video/mp4">
-                        <p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p>
-                    </video>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1r4ZXMeJ1W28Yr-2B-E3GbaTeMNw29Yq_/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
                 </div>
-                <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً على جهاز اختبار خاص.</p>
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i> 
+                    <span id="watchNote">🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً على جهاز اختبار خاص.</span>
+                </div>
             </div>
             
             <div class="tool-section">
-                <h2><i class="fas fa-question-circle"></i> <span id="whatTitle">🤔 ما هي أدوات الشبكات اللاسلكية؟</span></h2>
+                <h2><i class="fas fa-question-circle"></i> <span id="whatTitle"> ما هي أدوات الشبكات اللاسلكية؟</span></h2>
                 <p id="whatText">هي مجموعة متكاملة من الأدوات المتخصصة في اختبار أمان شبكات WiFi. تتيح لك مسح الشبكات المحيطة، استخراج كلمات المرور المحفوظة، مراقبة جودة الاتصال في الوقت الفعلي، وإنشاء نقاط وصول وهمية لاختبار الوعي الأمني.</p>
-                <div class="warning-box"><i class="fas fa-gavel"></i> <span id="warningText">تنبيه قانوني هام: استخدام هذه الأدوات على شبكات لا تملكها أو دون إذن صريح يعتبر غير قانوني في معظم الدول.</span></div>
+                <div class="warning-box"><i class="fas fa-gavel"></i> <span id="warningText"> تنبيه قانوني هام: استخدام هذه الأدوات على شبكات لا تملكها أو دون إذن صريح يعتبر غير قانوني في معظم الدول.</span></div>
             </div>
             
             <div class="tool-section">
-                <h2><i class="fas fa-tools"></i> <span id="toolsListTitle">🛠️ الأدوات المتاحة (8 أدوات)</span></h2>
+                <h2><i class="fas fa-tools"></i> <span id="toolsListTitle"> الأدوات المتاحة (8 أدوات)</span></h2>
                 <ul>
                     <li id="tool1">📶 WiFi Scanner - مسح الشبكات المحيطة</li>
                     <li id="tool2">🔑 WiFi Password Grabber - استخراج كلمات المرور المحفوظة</li>
@@ -65,7 +79,7 @@
             </div>
             
             <div class="tool-section">
-                <h2><i class="fas fa-mouse-pointer"></i> <span id="useTitle">🖱️ كيف تستخدم الأداة؟</span></h2>
+                <h2><i class="fas fa-mouse-pointer"></i> <span id="useTitle"> كيف تستخدم الأداة؟</span></h2>
                 <ol>
                     <li id="step1"><strong>تشغيل كمسؤول:</strong> جميع الأدوات تتطلب صلاحيات Administrator.</li>
                     <li id="step2"><strong>اختر الأداة:</strong> من الأزرار العلوية، اضغط على الأداة التي تريد استخدامها.</li>
@@ -77,7 +91,7 @@
             </div>
             
             <div class="tool-section">
-                <h2><i class="fas fa-clipboard-list"></i> <span id="notesTitle">📋 ملاحظات مهمة</span></h2>
+                <h2><i class="fas fa-clipboard-list"></i> <span id="notesTitle"> ملاحظات مهمة</span></h2>
                 <ul>
                     <li id="note1">✅ <strong>Windows فقط:</strong> جميع الأدوات مصممة لنظام Windows</li>
                     <li id="note2">✅ <strong>صلاحيات المسؤول إلزامية:</strong> معظم الوظائف تتطلب صلاحيات Administrator</li>
@@ -88,12 +102,13 @@
             
             <div class="footer">
                 <p id="copyright">© 2025 Cyber Pulse | للأغراض التعليمية فقط</p>
-                <p style="font-size:0.7rem" id="warningFooter">⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح</p>
+                <p style="font-size:0.7rem" id="warningFooter"> استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح</p>
             </div>
         </main>
     </div>
 
     <button class="lang-switcher" id="langToggleBtn">🇬🇧 English</button>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
     <script>
         let currentLang = localStorage.getItem('cyberpulse_lang') || 'ar';
@@ -127,12 +142,11 @@
             toolTitle: { ar: '📡 أدوات الشبكات اللاسلكية المتقدمة', en: '📡 Advanced Wireless Tools' },
             toolDesc: { ar: 'مجموعة متكاملة من 8 أدوات احترافية لاختبار أمان شبكات WiFi', en: 'Complete suite of 8 professional WiFi security testing tools' },
             videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' },
-            videoError: { ar: '❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود', en: '❌ Your browser does not support video playback or the video is missing' },
-            watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً.', en: '🎥 Tutorial video – Watch how to use the tool in practice.' },
-            whatTitle: { ar: '🤔 ما هي أدوات الشبكات اللاسلكية؟', en: '🤔 What are Wireless Network Tools?' },
-            whatText: { ar: 'هي مجموعة متكاملة من الأدوات المتخصصة في اختبار أمان شبكات WiFi. تتيح لك مسح الشبكات المحيطة، استخراج كلمات المرور المحفوظة، مراقبة جودة الاتصال، وإنشاء نقاط وصول وهمية.', en: 'A complete suite of specialized tools for WiFi network security testing. Allows network scanning, password extraction, quality monitoring, and fake access point creation.' },
-            warningText: { ar: 'تنبيه قانوني هام: استخدام هذه الأدوات على شبكات لا تملكها أو دون إذن صريح يعتبر غير قانوني في معظم الدول.', en: 'Important Legal Warning: Using these tools on networks you do not own or without explicit permission is illegal in most countries.' },
-            toolsListTitle: { ar: '🛠️ الأدوات المتاحة (8 أدوات)', en: '🛠️ Available Tools (8 Tools)' },
+            watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة استخدام الأداة عملياً على جهاز اختبار خاص.', en: '🎥 Tutorial video – Watch how to use the tool in practice on a test device.' },
+            whatTitle: { ar: ' ما هي أدوات الشبكات اللاسلكية؟', en: ' What are Wireless Network Tools?' },
+            whatText: { ar: 'هي مجموعة متكاملة من الأدوات المتخصصة في اختبار أمان شبكات WiFi. تتيح لك مسح الشبكات المحيطة، استخراج كلمات المرور المحفوظة، مراقبة جودة الاتصال في الوقت الفعلي، وإنشاء نقاط وصول وهمية لاختبار الوعي الأمني.', en: 'A complete suite of specialized tools for WiFi network security testing. Allows network scanning, password extraction, real-time quality monitoring, and fake access point creation for security awareness testing.' },
+            warningText: { ar: ' تنبيه قانوني هام: استخدام هذه الأدوات على شبكات لا تملكها أو دون إذن صريح يعتبر غير قانوني في معظم الدول.', en: ' Important Legal Warning: Using these tools on networks you do not own or without explicit permission is illegal in most countries.' },
+            toolsListTitle: { ar: ' الأدوات المتاحة (8 أدوات)', en: ' Available Tools (8 Tools)' },
             tool1: { ar: '📶 WiFi Scanner - مسح الشبكات المحيطة', en: '📶 WiFi Scanner - Scan nearby networks' },
             tool2: { ar: '🔑 WiFi Password Grabber - استخراج كلمات المرور المحفوظة', en: '🔑 WiFi Password Grabber - Extract saved passwords' },
             tool3: { ar: '🔍 WiFi Monitor - مراقبة فورية للإشارة والسرعة', en: '🔍 WiFi Monitor - Real-time signal and speed monitoring' },
@@ -141,14 +155,14 @@
             tool6: { ar: '🚀 Speed Test - اختبار سرعة الإنترنت', en: '🚀 Speed Test - Internet speed test' },
             tool7: { ar: '🔌 Hotspot Clients - عرض عملاء الهوتسبوت', en: '🔌 Hotspot Clients - View hotspot clients' },
             tool8: { ar: '👿 Evil Twin AP - نقطة وصول وهمية', en: '👿 Evil Twin AP - Fake access point' },
-            useTitle: { ar: '🖱️ كيف تستخدم الأداة؟', en: '🖱️ How to use?' },
+            useTitle: { ar: ' كيف تستخدم الأداة؟', en: ' How to use?' },
             step1: { ar: '<strong>تشغيل كمسؤول:</strong> جميع الأدوات تتطلب صلاحيات Administrator.', en: '<strong>Run as Admin:</strong> All tools require Administrator privileges.' },
             step2: { ar: '<strong>اختر الأداة:</strong> من الأزرار العلوية، اضغط على الأداة التي تريد استخدامها.', en: '<strong>Select tool:</strong> From the top buttons, click the tool you want to use.' },
             step3: { ar: '<strong>لـ WiFi Scanner:</strong> سيبدأ المسح تلقائياً ويعرض جميع الشبكات المحيطة.', en: '<strong>For WiFi Scanner:</strong> Scanning will start automatically showing all nearby networks.' },
             step4: { ar: '<strong>لـ Password Grabber:</strong> سيتم عرض جميع كلمات مرور WiFi المحفوظة.', en: '<strong>For Password Grabber:</strong> All saved WiFi passwords will be displayed.' },
             step5: { ar: '<strong>لـ WiFi Monitor:</strong> ستبدأ المراقبة الفورية للإشارة والسرعة.', en: '<strong>For WiFi Monitor:</strong> Real-time signal and speed monitoring will start.' },
             step6: { ar: '<strong>لـ Evil Twin AP:</strong> تأكد من تشغيل Mobile Hotspot أولاً.', en: '<strong>For Evil Twin AP:</strong> Make sure Mobile Hotspot is enabled first.' },
-            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            notesTitle: { ar: ' ملاحظات مهمة', en: ' Important Notes' },
             note1: { ar: '✅ <strong>Windows فقط:</strong> جميع الأدوات مصممة لنظام Windows', en: '✅ <strong>Windows only:</strong> All tools are designed for Windows' },
             note2: { ar: '✅ <strong>صلاحيات المسؤول إلزامية:</strong> معظم الوظائف تتطلب صلاحيات Administrator', en: '✅ <strong>Admin required:</strong> Most functions require Administrator privileges' },
             note3: { ar: '✅ <strong>بطاقة WiFi مدعومة:</strong> لـ Evil Twin، تحتاج بطاقة WiFi تدعم وضع Hosted Network', en: '✅ <strong>Supported WiFi card:</strong> For Evil Twin, a WiFi card supporting Hosted Network is needed' },
@@ -158,33 +172,56 @@
             downloadBtnText: { ar: 'تحميل الآن', en: 'Download Now' },
             langBtnText: { ar: '🇬🇧 English', en: '🇸🇦 عربي' }
         };
+        
         function setLanguage(lang) {
-            currentLang = lang; localStorage.setItem('cyberpulse_lang', lang);
+            currentLang = lang; 
+            localStorage.setItem('cyberpulse_lang', lang);
             document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
             document.documentElement.setAttribute('lang', lang);
             for (const [key, value] of Object.entries(translations)) {
                 if (key === 'pageTitle') document.title = value[lang];
-                else if (key === 'langBtnText') { const btn = document.getElementById('langToggleBtn'); if (btn) btn.textContent = value[lang]; }
-                else { const element = document.getElementById(key); if (element) element.innerHTML = value[lang]; }
+                else if (key === 'langBtnText') { 
+                    const btn = document.getElementById('langToggleBtn'); 
+                    if (btn) btn.textContent = value[lang]; 
+                } else { 
+                    const element = document.getElementById(key); 
+                    if (element) element.innerHTML = value[lang]; 
+                }
             }
         }
+        
         function toggleSidebar() { 
             const sidebar = document.querySelector('.sidebar');
             const overlay = document.getElementById('sidebarOverlay');
             sidebar?.classList.toggle('open');
-            overlay?.classList.toggle('active');
+            if (overlay) {
+                if (sidebar?.classList.contains('open')) {
+                    overlay.classList.add('active');
+                } else {
+                    overlay.classList.remove('active');
+                }
+            }
         }
+        
         function closeSidebar() {
             const sidebar = document.querySelector('.sidebar');
             const overlay = document.getElementById('sidebarOverlay');
             sidebar?.classList.remove('open');
             overlay?.classList.remove('active');
         }
-        function toggleLanguage() { setLanguage(currentLang === 'ar' ? 'en' : 'ar'); }
+        
+        function toggleLanguage() { 
+            setLanguage(currentLang === 'ar' ? 'en' : 'ar'); 
+        }
+        
         setLanguage(currentLang);
         document.getElementById('langToggleBtn')?.addEventListener('click', toggleLanguage);
-        document.querySelectorAll('.sidebar a').forEach(l => l.addEventListener('click', () => { if(window.innerWidth <= 768) document.querySelector('.sidebar')?.classList.remove('open'); }));
+        document.querySelectorAll('.sidebar a').forEach(l => l.addEventListener('click', () => { 
+            if(window.innerWidth <= 768) {
+                document.querySelector('.sidebar')?.classList.remove('open');
+                document.getElementById('sidebarOverlay')?.classList.remove('active');
+            }
+        }));
     </script>
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 </body>
 </html>

@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -157,11 +181,6 @@
                 </div>
                 <h1 id="toolTitle">📡 التقاط حزم الشبكة</h1>
                 <p id="toolDesc">التقاط وتحليل حزم الشبكة (PCAP) مع فلتر متقدم وشبيه بواجهة Wireshark</p>
-                <!-- <div class="tool-actions">
-                    <a id="downloadBtn" class="download-btn" href="../assets/CyberPulse_Security_Suite.zip" download>
-                        <i class="fas fa-download"></i> <span id="downloadBtnText">تحميل الآن</span>
-                    </a>
-                </div> -->
                 
             </div>
                 
@@ -172,11 +191,8 @@
                     <span id="videoTitle">📺 الفيديو التعليمي</span>
                 </h2>
 
-                <div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;">
-                    <video width="100%" controls style="filter: brightness(3) contrast(1.1);">
-                        <source src="videos/Network%20Capture.mp4" type="video/mp4">
-                        <p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p>
-                    </video>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1il8YJq75vhHWsLi_rW93pdJaIlEZxsWj/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
                 </div>
 
                 <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة التقاط وتحليل حزم الشبكة.</p>
@@ -302,10 +318,10 @@
             videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' },
             videoError: { ar: '❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود', en: '❌ Video playback not supported or video missing' },
             watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة التقاط وتحليل حزم الشبكة.', en: '🎥 Tutorial video – Watch how to capture and analyze network packets.' },
-            whatTitle: { ar: '🤔 ما هو تحليل حزم الشبكة؟', en: '🤔 What is Network Packet Analysis?' },
+            whatTitle: { ar: ' ما هو تحليل حزم الشبكة؟', en: ' What is Network Packet Analysis?' },
             whatText: { ar: 'هي عملية التقاط وتسجيل حركة البيانات التي تمر عبر واجهة الشبكة الخاصة بك. تسمح لك هذه التقنية برؤية كل حزمة بيانات يتم إرسالها أو استقبالها.', en: 'The process of capturing and recording data traffic passing through your network interface. This technique allows you to see every data packet sent or received.' },
-            warningText: { ar: '⚠️ تنبيه قانوني: التقاط حزم الشبكة على شبكات لا تملكها أو دون إذن يعتبر انتهاكاً للخصوصية.', en: '⚠️ Legal Warning: Capturing network packets on networks you do not own or without permission is a privacy violation.' },
-            featuresTitle: { ar: '✨ الميزات الرئيسية', en: '✨ Key Features' },
+            warningText: { ar: ' تنبيه قانوني: التقاط حزم الشبكة على شبكات لا تملكها أو دون إذن يعتبر انتهاكاً للخصوصية.', en: ' Legal Warning: Capturing network packets on networks you do not own or without permission is a privacy violation.' },
+            featuresTitle: { ar: ' الميزات الرئيسية', en: ' Key Features' },
             feat1Title: { ar: 'التقاط مباشر', en: 'Live Capture' },
             feat1Desc: { ar: 'التقاط الحزم من واجهة الشبكة', en: 'Capture packets from network interface' },
             feat2Title: { ar: 'بحث متقدم', en: 'Advanced Search' },
@@ -314,14 +330,14 @@
             feat3Desc: { ar: 'تحليل حركة المرور', en: 'Traffic analysis' },
             feat4Title: { ar: 'تصدير', en: 'Export' },
             feat4Desc: { ar: 'PCAP, CSV, JSON', en: 'PCAP, CSV, JSON' },
-            useTitle: { ar: '🖱️ كيف تستخدم الأداة؟', en: '🖱️ How to use?' },
+            useTitle: { ar: ' كيف تستخدم الأداة؟', en: ' How to use?' },
             step1: { ar: 'اختر واجهة الشبكة من القائمة المنسدلة', en: 'Select network interface from dropdown' },
             step2: { ar: 'اضغط ▶ START لبدء التقاط الحزم', en: 'Click ▶ START to begin packet capture' },
             step3: { ar: 'شاهد الحزم تظهر في الجدول في الوقت الفعلي', en: 'Watch packets appear in the table in real-time' },
             step4: { ar: 'استخدم مربع البحث لفلترة الحزم', en: 'Use search box to filter packets' },
             step5: { ar: 'اضغط ⏹ STOP لإنهاء التقاط الحزم', en: 'Click ⏹ STOP to end packet capture' },
             step6: { ar: 'احفظ النتائج بصيغة PCAP أو CSV أو JSON', en: 'Save results as PCAP, CSV, or JSON' },
-            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            notesTitle: { ar: ' ملاحظات مهمة', en: ' Important Notes' },
             note1: { ar: '✅ يتطلب تشغيل الأداة بصلاحيات Administrator', en: '✅ Requires running as Administrator' },
             note2: { ar: '✅ قد تلتقط كمية كبيرة من البيانات - يوصى باستخدام الفلاتر', en: '✅ May capture large amounts of data - using filters is recommended' },
             note3: { ar: '✅ يتم حفظ الحزم في قاعدة بيانات محلية للتحليل لاحقاً', en: '✅ Packets are saved in a local database for later analysis' },
@@ -351,7 +367,17 @@
         }
 
         function toggleSidebar() {
-            document.querySelector('.sidebar')?.classList.toggle('open');
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar?.classList.toggle('open');
+            overlay?.classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar?.classList.remove('open');
+            overlay?.classList.remove('active');
         }
 
         function toggleLanguage() {
@@ -366,9 +392,11 @@
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
                     document.querySelector('.sidebar')?.classList.remove('open');
+                    document.getElementById('sidebarOverlay')?.classList.remove('active');
                 }
             });
         });
     </script>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 </body>
 </html>

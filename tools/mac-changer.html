@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1rem 0;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .video-container {
+                padding-bottom: 75%;
+            }
+        }
+    </style>
 </head>
 <body>
     <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
@@ -24,7 +48,12 @@
                         <i class="fas fa-download"></i> <span id="downloadBtnText">تحميل الآن</span>
                     </a>
                 </div></div> -->
-            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2><div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;"><video width="100%" controls style="filter: brightness(3) contrast(1.1);"><source src="videos/MAC.mp4" type="video/mp4"><p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p></video></div><p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة تغيير عنوان MAC خطوة بخطوة.</p></div>
+            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2>
+                <div class="video-container">
+                    <iframe src="https://drive.google.com/file/d/1L5UTHbDy78CyUXKY9H-fthOdOR-ArmA0/preview" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة تغيير عنوان MAC خطوة بخطوة.</p>
+            </div>
             <div class="tool-section"><h2><i class="fas fa-question-circle"></i> <span id="whatTitle">🤔 ما هو عنوان MAC؟</span></h2><p id="whatText">عنوان MAC هو معرف فريد يُعطى لكل بطاقة شبكة عند تصنيعها. يتكون من 12 خانة سداسية عشرية ويعمل كبطاقة هوية لجهازك على الشبكة.</p></div>
             <div class="tool-section"><h2><i class="fas fa-star"></i> <span id="featuresTitle">✨ ميزات الأداة</span></h2><div class="feature-grid"><div class="feature-card"><i class="fas fa-random"></i><h4 id="feat1Title">توليد عشوائي</h4><p id="feat1Desc">إنشاء عنوان MAC عشوائي صالح</p></div><div class="feature-card"><i class="fas fa-industry"></i><h4 id="feat2Title">تزييف البائعين</h4><p id="feat2Desc">تغيير MAC ليشبه شركات معروفة</p></div><div class="feature-card"><i class="fas fa-undo-alt"></i><h4 id="feat3Title">إعادة الضبط</h4><p id="feat3Desc">استعادة عنوان MAC الأصلي</p></div><div class="feature-card"><i class="fas fa-check-circle"></i><h4 id="feat4Title">التحقق</h4><p id="feat4Desc">عرض عنوان MAC الحالي</p></div></div></div>
             <div class="tool-section"><h2><i class="fas fa-mouse-pointer"></i> <span id="useTitle">🖱️ كيف تستخدم الأداة؟</span></h2><ol><li id="step1"><strong>تشغيل كمسؤول:</strong> الأداة تتطلب صلاحيات Administrator</li><li id="step2"><strong>اختر المحول:</strong> من القائمة، اختر محول الشبكة المطلوب</li><li id="step3"><strong>اختر الطريقة:</strong> Random MAC أو Vendor Spoofing أو Custom MAC</li><li id="step4"><strong>طبق التغيير:</strong> اضغط على الزر المناسب</li><li id="step5"><strong>تحقق:</strong> اضغط Verify للتأكد من نجاح التغيير</li></ol></div>
@@ -44,33 +73,45 @@
             homeBread: { ar: 'الرئيسية', en: 'Home' }, toolNameBread: { ar: 'تغيير عنوان MAC', en: 'MAC Changer' },
             toolTitle: { ar: '🔄 تغيير عنوان MAC', en: '🔄 MAC Address Changer' }, toolDesc: { ar: 'أداة احترافية لتغيير عنوان MAC الخاص ببطاقة الشبكة لإخفاء الهوية', en: 'Professional tool to change your network adapter MAC address for anonymity' },
             videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' }, videoError: { ar: '❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود', en: '❌ Video playback not supported or video missing' }, watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة تغيير عنوان MAC خطوة بخطوة.', en: '🎥 Tutorial video – Watch how to change MAC address step by step.' },
-            whatTitle: { ar: '🤔 ما هو عنوان MAC؟', en: '🤔 What is a MAC Address?' }, whatText: { ar: 'عنوان MAC هو معرف فريد يُعطى لكل بطاقة شبكة عند تصنيعها. يتكون من 12 خانة سداسية عشرية ويعمل كبطاقة هوية لجهازك على الشبكة.', en: 'A MAC address is a unique identifier assigned to each network card during manufacturing. It consists of 12 hexadecimal digits and serves as your device ID on the network.' },
-            featuresTitle: { ar: '✨ ميزات الأداة', en: '✨ Tool Features' },
+            whatTitle: { ar: ' ما هو عنوان MAC؟', en: ' What is a MAC Address?' }, whatText: { ar: 'عنوان MAC هو معرف فريد يُعطى لكل بطاقة شبكة عند تصنيعها. يتكون من 12 خانة سداسية عشرية ويعمل كبطاقة هوية لجهازك على الشبكة.', en: 'A MAC address is a unique identifier assigned to each network card during manufacturing. It consists of 12 hexadecimal digits and serves as your device ID on the network.' },
+            featuresTitle: { ar: ' ميزات الأداة', en: ' Tool Features' },
             feat1Title: { ar: 'توليد عشوائي', en: 'Random Generation' }, feat1Desc: { ar: 'إنشاء عنوان MAC عشوائي صالح', en: 'Create a valid random MAC address' },
             feat2Title: { ar: 'تزييف البائعين', en: 'Vendor Spoofing' }, feat2Desc: { ar: 'تغيير MAC ليشبه شركات معروفة', en: 'Change MAC to mimic known companies' },
             feat3Title: { ar: 'إعادة الضبط', en: 'Reset' }, feat3Desc: { ar: 'استعادة عنوان MAC الأصلي', en: 'Restore original MAC address' },
             feat4Title: { ar: 'التحقق', en: 'Verification' }, feat4Desc: { ar: 'عرض عنوان MAC الحالي', en: 'Display current MAC address' },
-            useTitle: { ar: '🖱️ كيف تستخدم الأداة؟', en: '🖱️ How to use?' },
+            useTitle: { ar: ' كيف تستخدم الأداة؟', en: ' How to use?' },
             step1: { ar: '<strong>تشغيل كمسؤول:</strong> الأداة تتطلب صلاحيات Administrator', en: '<strong>Run as Admin:</strong> Tool requires Administrator privileges' },
             step2: { ar: '<strong>اختر المحول:</strong> من القائمة، اختر محول الشبكة المطلوب', en: '<strong>Select adapter:</strong> Choose the desired network adapter from the list' },
             step3: { ar: '<strong>اختر الطريقة:</strong> Random MAC أو Vendor Spoofing أو Custom MAC', en: '<strong>Choose method:</strong> Random MAC, Vendor Spoofing, or Custom MAC' },
             step4: { ar: '<strong>طبق التغيير:</strong> اضغط على الزر المناسب', en: '<strong>Apply change:</strong> Click the appropriate button' },
             step5: { ar: '<strong>تحقق:</strong> اضغط Verify للتأكد من نجاح التغيير', en: '<strong>Verify:</strong> Click Verify to confirm the change' },
-            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            notesTitle: { ar: ' ملاحظات مهمة', en: ' Important Notes' },
             note1: { ar: '✅ يتطلب صلاحيات المسؤول لتعديل الريجستري', en: '✅ Requires administrator privileges to modify registry' },
             note2: { ar: '✅ أثناء التغيير، ستفقد الاتصال بالشبكة لبضع ثوانٍ', en: '✅ During change, network connection will be lost for a few seconds' },
             note3: { ar: '✅ التغيير مؤقت - يستمر حتى إعادة التشغيل أو إعادة التعيين', en: '✅ Change is temporary - lasts until reboot or manual reset' },
             note4: { ar: '✅ بعض بطاقات الشبكة المدمجة لا تدعم تغيير MAC', en: '✅ Some integrated network cards do not support MAC change' },
             copyright: { ar: '© 2025 Cyber Pulse | للأغراض التعليمية فقط', en: '© 2025 CyberPulse | For educational purposes only' },
-            warningFooter: { ar: '⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: '⚠️ Use these tools only on your devices or with explicit legal permission' },
+            warningFooter: { ar: ' استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: ' Use these tools only on your devices or with explicit legal permission' },
             downloadBtnText: { ar: 'تحميل الآن', en: 'Download Now' },
             langBtnText: { ar: '🇬🇧 English', en: '🇸🇦 عربي' }
         };
         function setLanguage(lang) { currentLang = lang; localStorage.setItem('cyberpulse_lang', lang); document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); document.documentElement.setAttribute('lang', lang); for (const [key, value] of Object.entries(translations)) { if (key === 'pageTitle') document.title = value[lang]; else if (key === 'langBtnText') { const btn = document.getElementById('langToggleBtn'); if (btn) btn.textContent = value[lang]; } else { const element = document.getElementById(key); if (element) element.innerHTML = value[lang]; } } }
-        function toggleSidebar() { document.querySelector('.sidebar')?.classList.toggle('open'); }
+        function toggleSidebar() { 
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar?.classList.toggle('open');
+            overlay?.classList.toggle('active');
+        }
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar?.classList.remove('open');
+            overlay?.classList.remove('active');
+        }
         function toggleLanguage() { setLanguage(currentLang === 'ar' ? 'en' : 'ar'); }
         setLanguage(currentLang); document.getElementById('langToggleBtn')?.addEventListener('click', toggleLanguage);
-        document.querySelectorAll('.sidebar a').forEach(l => l.addEventListener('click', () => { if(window.innerWidth <= 768) document.querySelector('.sidebar')?.classList.remove('open'); }));
+        document.querySelectorAll('.sidebar a').forEach(l => l.addEventListener('click', () => { if(window.innerWidth <= 768) { document.querySelector('.sidebar')?.classList.remove('open'); document.getElementById('sidebarOverlay')?.classList.remove('active'); } }));
     </script>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 </body>
 </html>
