@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">مراقبة EDR | Cyber Pulse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header"><h2 id="brandText">⚡ Cyber<br>Pulse</h2><p id="taglineText">مجموعة متقدمة للأمن السيبراني</p></div>
+            <div class="sidebar-section"><h3 id="homeTitle">🏠 الرئيسية</h3><ul><li><a href="../index.html"><i class="fas fa-home"></i> <span id="homeLink">الرئيسية</span></a></li></ul></div>
+            <div class="sidebar-section"><h3 id="attackTitle">⚔️ وحدات الهجوم</h3><ul><li><a href="dos-tool.html"><i class="fas fa-fire"></i> <span id="dosLink">أداة DOS</span></a></li><li><a href="phishing-tool.html"><i class="fas fa-fish"></i> <span id="phishLink">أداة التصيد</span></a></li><li><a href="password-cracker.html"><i class="fas fa-key"></i> <span id="crackerLink">تكسير كلمات المرور</span></a></li><li><a href="phantom-stego.html"><i class="fas fa-ghost"></i> <span id="phantomLink">فانتوم</span></a></li><li><a href="wireless-tools.html"><i class="fas fa-wifi"></i> <span id="wirelessLink">أدوات الشبكات</span></a></li><li><a href="web-exploitation.html"><i class="fas fa-globe"></i> <span id="webLink">اختراق الويب</span></a></li><li><a href="mac-changer.html"><i class="fas fa-exchange-alt"></i> <span id="macLink">تغيير MAC</span></a></li></ul></div>
+            <div class="sidebar-section"><h3 id="defenseTitle">🛡️ وحدات الدفاع</h3><ul><li><a href="malware-analysis.html"><i class="fas fa-biohazard"></i> <span id="malwareLink">تحليل البرامج</span></a></li><li><a href="network-capture.html"><i class="fas fa-network-wired"></i> <span id="networkLink">التقاط الشبكة</span></a></li><li><a href="encryption-tool.html"><i class="fas fa-lock"></i> <span id="encryptLink">التشفير</span></a></li><li><a href="password-tools.html"><i class="fas fa-dice-d6"></i> <span id="pwdToolsLink">أدوات كلمات المرور</span></a></li><li><a href="usb-scanner.html"><i class="fas fa-usb"></i> <span id="usbScanLink">ماسح USB</span></a></li><li><a href="ransomware-detection.html"><i class="fas fa-skull"></i> <span id="ransomLink">كشف الفدية</span></a></li><li><a href="edr-monitoring.html"><i class="fas fa-eye"></i> <span id="edrLink">مراقبة EDR</span></a></li><li><a href="vulnerability-scanner.html"><i class="fas fa-search"></i> <span id="vulnLink">ماسح الثغرات</span></a></li><li><a href="usb-recognizer.html"><i class="fas fa-microchip"></i> <span id="usbRecogLink">التعرف على USB</span></a></li><li><a href="honeypot-trap.html"><i class="fas fa-fish"></i> <span id="honeyLink">مصيدة هانيبوت</span></a></li></ul></div>
+        </aside>
+        <main class="main-content">
+            <div class="tool-header"><div class="breadcrumb"><a href="../index.html" id="homeBread">الرئيسية</a> / 
+                <span id="toolNameBread">مراقبة EDR
+                </span>
+            </div>
+            <h1 id="toolTitle">👁️ مراقبة EDR</h1>
+            <p id="toolDesc">نظام متقدم لمراقبة الملفات والعمليات في الوقت الفعلي وكشف التهديدات</p>
+                <!-- <div class="tool-actions">
+                    <a id="downloadBtn" class="download-btn" href="../assets/CyberPulse_Security_Suite.zip" download>
+                        <i class="fas fa-download"></i> <span id="downloadBtnText">تحميل الآن</span>
+                    </a>
+                </div> -->
+            </div>
+            <div class="tool-section"><h2><i class="fas fa-video"></i> <span id="videoTitle">📺 الفيديو التعليمي</span></h2><div style="background: #000; border-radius: 12px; overflow: hidden; margin: 1rem 0;"><video width="100%" controls style="filter: brightness(3) contrast(1.1);"><source src="videos/EDR.mp4" type="video/mp4"><p id="videoError">❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود</p></video></div><p class="info-box" id="watchNote">🎥 فيديو تعليمي – شاهد طريقة إعداد مراقبة EDR واكتشاف التهديدات.</p></div>
+            <div class="tool-section"><h2><i class="fas fa-question-circle"></i> <span id="whatTitle">🤔 ما هو نظام EDR؟</span></h2><p id="whatText">EDR هو حل أمني متقدم يراقب الأنشطة على الأجهزة الطرفية في الوقت الفعلي، ويكتشف السلوكيات المشبوهة التي قد تشير إلى هجوم إلكتروني أو اختراق.</p><div class="info-box"><i class="fas fa-lightbulb"></i> <span id="whatInfo">معلومة: الفرق بين EDR و Antivirus العادي هو أن الـ Antivirus يعتمد على توقيعات الفيروسات المعروفة، بينما EDR يحلل السلوك ويكتشف الهجمات الجديدة.</span></div></div>
+            <div class="tool-section"><h2><i class="fas fa-star"></i> <span id="featuresTitle">✨ ميزات نظام EDR</span></h2><div class="feature-grid"><div class="feature-card"><i class="fas fa-folder-open"></i><h4 id="feat1Title">مراقبة الملفات</h4><p id="feat1Desc">تتبع إنشاء وتعديل وحذف الملفات</p></div><div class="feature-card"><i class="fas fa-microchip"></i><h4 id="feat2Title">مراقبة العمليات</h4><p id="feat2Desc">كشف العمليات الجديدة والمشبوهة</p></div><div class="feature-card"><i class="fas fa-chart-line"></i><h4 id="feat3Title">تحليل السلوك</h4><p id="feat3Desc">تقييم العمليات بناءً على سلوكها</p></div><div class="feature-card"><i class="fas fa-bell"></i><h4 id="feat4Title">تنبيهات فورية</h4><p id="feat4Desc">إشعارات عند اكتشاف تهديدات</p></div></div></div>
+            <div class="tool-section"><h2><i class="fas fa-mouse-pointer"></i> <span id="useTitle">🖱️ كيف تستخدم الأداة؟</span></h2><ol><li id="step1"><strong>إضافة مجلدات للمراقبة:</strong> اضغط على Add Folder واختر المجلدات</li><li id="step2"><strong>بدء المراقبة:</strong> اختر المجلد ثم اضغط Start</li><li id="step3"><strong>مراقبة الأحداث:</strong> سترى جميع التغييرات على الملفات والعمليات</li><li id="step4"><strong>عرض الإحصائيات:</strong> في قسم Statistics يمكنك رؤية ملخص المراقبة</li></ol></div>
+            <div class="tool-section"><h2><i class="fas fa-clipboard-list"></i> <span id="notesTitle">📋 ملاحظات مهمة</span></h2><ul><li id="note1">✅ <strong>يتطلب صلاحيات المسؤول:</strong> مراقبة العمليات تتطلب صلاحيات Administrator</li><li id="note2">✅ <strong>التأثير على الأداء:</strong> مراقبة مجلدات كبيرة قد تستهلك موارد النظام</li><li id="note3">✅ <strong>سجل الأحداث:</strong> يتم تسجيل كل شيء في السجل ويمكن تصديره</li></ul></div>
+            <div class="footer"><p id="copyright">© 2025 Cyber Pulse | للأغراض التعليمية فقط</p><p style="font-size:0.7rem" id="warningFooter">⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح</p></div>
+        </main>
+    </div>
+    <button class="lang-switcher" id="langToggleBtn">🇬🇧 English</button>
+    <script>
+        let currentLang = localStorage.getItem('cyberpulse_lang') || 'ar';
+        const translations = {
+            pageTitle: { ar: 'مراقبة EDR | Cyber Pulse', en: 'EDR Monitoring | CyberPulse' },
+            brand: { ar: '⚡ Cyber<br>Pulse', en: '⚡ CYBER<br>PULSE' }, tagline: { ar: 'مجموعة متقدمة للأمن السيبراني', en: 'Advanced Security Suite' },
+            homeTitle: { ar: '🏠 الرئيسية', en: '🏠 Dashboard' }, homeLink: { ar: 'الرئيسية', en: 'Dashboard' },
+            attackTitle: { ar: '⚔️ وحدات الهجوم', en: '⚔️ ATTACK MODULES' }, defenseTitle: { ar: '🛡️ وحدات الدفاع', en: '🛡️ DEFENSE MODULES' },
+            dosLink: { ar: 'أداة DOS', en: 'DOS Tool' }, phishLink: { ar: 'أداة التصيد', en: 'Phishing Tool' }, crackerLink: { ar: 'تكسير كلمات المرور', en: 'Password Cracker' }, phantomLink: { ar: 'فانتوم', en: 'Phantom' }, wirelessLink: { ar: 'أدوات الشبكات', en: 'Wireless Tools' }, webLink: { ar: 'اختراق الويب', en: 'Web Exploitation' }, macLink: { ar: 'تغيير MAC', en: 'MAC Changer' }, malwareLink: { ar: 'تحليل البرامج', en: 'Malware Analysis' }, networkLink: { ar: 'التقاط الشبكة', en: 'Network Capture' }, encryptLink: { ar: 'التشفير', en: 'Encryption' }, pwdToolsLink: { ar: 'أدوات كلمات المرور', en: 'Password Tools' }, usbScanLink: { ar: 'ماسح USB', en: 'USB Scanner' }, ransomLink: { ar: 'كشف الفدية', en: 'Ransomware Detection' }, edrLink: { ar: 'مراقبة EDR', en: 'EDR Monitoring' }, vulnLink: { ar: 'ماسح الثغرات', en: 'Vulnerability Scanner' }, usbRecogLink: { ar: 'التعرف على USB', en: 'USB Recognizer' }, honeyLink: { ar: 'مصيدة هانيبوت', en: 'Honeypot Trap' },
+            homeBread: { ar: 'الرئيسية', en: 'Home' }, toolNameBread: { ar: 'مراقبة EDR', en: 'EDR Monitoring' },
+            toolTitle: { ar: '👁️ مراقبة EDR', en: '👁️ EDR Monitoring' }, toolDesc: { ar: 'نظام متقدم لمراقبة الملفات والعمليات في الوقت الفعلي وكشف التهديدات', en: 'Advanced system for real-time file and process monitoring and threat detection' },
+            videoTitle: { ar: '📺 الفيديو التعليمي', en: '📺 Video Tutorial' }, videoError: { ar: '❌ متصفحك لا يدعم تشغيل الفيديو أو الفيديو غير موجود', en: '❌ Video playback not supported or video missing' }, watchNote: { ar: '🎥 فيديو تعليمي – شاهد طريقة إعداد مراقبة EDR واكتشاف التهديدات.', en: '🎥 Tutorial video – Watch how to set up EDR monitoring and detect threats.' },
+            whatTitle: { ar: '🤔 ما هو نظام EDR؟', en: '🤔 What is EDR?' }, whatText: { ar: 'EDR هو حل أمني متقدم يراقب الأنشطة على الأجهزة الطرفية في الوقت الفعلي، ويكتشف السلوكيات المشبوهة التي قد تشير إلى هجوم إلكتروني أو اختراق.', en: 'EDR is an advanced security solution that monitors endpoint activities in real-time and detects suspicious behaviors that may indicate a cyber attack or breach.' }, whatInfo: { ar: 'معلومة: الفرق بين EDR و Antivirus العادي هو أن الـ Antivirus يعتمد على توقيعات الفيروسات المعروفة، بينما EDR يحلل السلوك ويكتشف الهجمات الجديدة.', en: 'Info: The difference between EDR and regular Antivirus is that Antivirus relies on known virus signatures, while EDR analyzes behavior and detects new attacks.' },
+            featuresTitle: { ar: '✨ ميزات نظام EDR', en: '✨ EDR Features' },
+            feat1Title: { ar: 'مراقبة الملفات', en: 'File Monitoring' }, feat1Desc: { ar: 'تتبع إنشاء وتعديل وحذف الملفات', en: 'Track file creation, modification, and deletion' },
+            feat2Title: { ar: 'مراقبة العمليات', en: 'Process Monitoring' }, feat2Desc: { ar: 'كشف العمليات الجديدة والمشبوهة', en: 'Detect new and suspicious processes' },
+            feat3Title: { ar: 'تحليل السلوك', en: 'Behavior Analysis' }, feat3Desc: { ar: 'تقييم العمليات بناءً على سلوكها', en: 'Assess processes based on their behavior' },
+            feat4Title: { ar: 'تنبيهات فورية', en: 'Instant Alerts' }, feat4Desc: { ar: 'إشعارات عند اكتشاف تهديدات', en: 'Notifications when threats are detected' },
+            useTitle: { ar: '🖱️ كيف تستخدم الأداة؟', en: '🖱️ How to use?' },
+            step1: { ar: '<strong>إضافة مجلدات للمراقبة:</strong> اضغط على Add Folder واختر المجلدات', en: '<strong>Add folders to monitor:</strong> Click Add Folder and select folders' },
+            step2: { ar: '<strong>بدء المراقبة:</strong> اختر المجلد ثم اضغط Start', en: '<strong>Start monitoring:</strong> Select folder then click Start' },
+            step3: { ar: '<strong>مراقبة الأحداث:</strong> سترى جميع التغييرات على الملفات والعمليات', en: '<strong>Monitor events:</strong> You will see all file changes and processes' },
+            step4: { ar: '<strong>عرض الإحصائيات:</strong> في قسم Statistics يمكنك رؤية ملخص المراقبة', en: '<strong>View statistics:</strong> In Statistics section you can see monitoring summary' },
+            notesTitle: { ar: '📋 ملاحظات مهمة', en: '📋 Important Notes' },
+            note1: { ar: '✅ <strong>يتطلب صلاحيات المسؤول:</strong> مراقبة العمليات تتطلب صلاحيات Administrator', en: '✅ <strong>Admin privileges required:</strong> Process monitoring requires Administrator privileges' },
+            note2: { ar: '✅ <strong>التأثير على الأداء:</strong> مراقبة مجلدات كبيرة قد تستهلك موارد النظام', en: '✅ <strong>Performance impact:</strong> Monitoring large folders may consume system resources' },
+            note3: { ar: '✅ <strong>سجل الأحداث:</strong> يتم تسجيل كل شيء في السجل ويمكن تصديره', en: '✅ <strong>Event log:</strong> Everything is logged and can be exported' },
+            copyright: { ar: '© 2025 Cyber Pulse | للأغراض التعليمية فقط', en: '© 2025 CyberPulse | For educational purposes only' },
+            warningFooter: { ar: '⚠️ استخدم هذه الأدوات فقط على أجهزتك أو بإذن قانوني صريح', en: '⚠️ Use these tools only on your devices or with explicit legal permission' },
+            downloadBtnText: { ar: 'تحميل الآن', en: 'Download Now' },
+            langBtnText: { ar: '🇬🇧 English', en: '🇸🇦 عربي' }
+        };
+        function setLanguage(lang) { currentLang = lang; localStorage.setItem('cyberpulse_lang', lang); document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr'); document.documentElement.setAttribute('lang', lang); for (const [key, value] of Object.entries(translations)) { if (key === 'pageTitle') document.title = value[lang]; else if (key === 'langBtnText') { const btn = document.getElementById('langToggleBtn'); if (btn) btn.textContent = value[lang]; } else { const element = document.getElementById(key); if (element) element.innerHTML = value[lang]; } } }
+        function toggleSidebar() { document.querySelector('.sidebar')?.classList.toggle('open'); }
+        function toggleLanguage() { setLanguage(currentLang === 'ar' ? 'en' : 'ar'); }
+        setLanguage(currentLang); document.getElementById('langToggleBtn')?.addEventListener('click', toggleLanguage);
+        document.querySelectorAll('.sidebar a').forEach(l => l.addEventListener('click', () => { if(window.innerWidth <= 768) document.querySelector('.sidebar')?.classList.remove('open'); }));
+    </script>
+</body>
+</html>
